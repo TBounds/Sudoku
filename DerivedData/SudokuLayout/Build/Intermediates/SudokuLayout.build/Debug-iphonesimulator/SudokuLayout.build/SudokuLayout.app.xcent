@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>www.vancouver.wsu.edu.SudokuLayout</string>
+	<string>266548894Y.www.vancouver.wsu.edu.SudokuLayout</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>www.vancouver.wsu.edu.SudokuLayout</string>
+		<string>266548894Y.www.vancouver.wsu.edu.SudokuLayout</string>
 	</array>
 </dict>
 </plist>
