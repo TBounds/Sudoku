@@ -18,10 +18,6 @@ class PuzzleView: UIView {
         super.init(coder: aDecoder)
     }
     
-    func getGridOrigin() -> CGPoint { // XXX This may not be (0,0)
-        return CGPoint(x: 0, y: 0)
-    }
-    
     func boardRect() -> CGRect {
         let margin : CGFloat = 10
         let size = ceil((min(self.bounds.width, self.bounds.height) - margin)/8.0)*8.0
@@ -33,16 +29,7 @@ class PuzzleView: UIView {
         return boardRect
     }
     
-    func vertRect(row: Int) -> CGRect {
-        let margin : CGFloat = 10
-        let size = ceil((min(self.bounds.width, self.bounds.height) - margin)/8.0)*8.0
-        let center = CGPoint(x: self.bounds.width/2,
-                             y :self.bounds.height/2)
-        let boardRect = CGRect(x: center.x - size/2,
-                               y: center.y - size/2,
-                               width: size, height: size)
-        return boardRect
-    }
+
 //    func handleTap(sender : UIGestureRecognizer) {
 //        let tapPoint = sender.location(in: self)
 //        // ... compute gridOrigin and d as done in drawRect ...
@@ -73,9 +60,12 @@ class PuzzleView: UIView {
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
+        
         // Drawing code
         let boldFont = UIFont(name: "Helvetica", size: 30)
         let fixedAttributes = [NSFontAttributeName : boldFont!, NSForegroundColorAttributeName: UIColor.black]
+        
+        let boardRect = self.boardRect()
         
         // ...
         let gridSize = self.bounds.width - 8
@@ -83,29 +73,47 @@ class PuzzleView: UIView {
         let d = delta/3
         // let s = d/3
         
-        let gridOrigin = getGridOrigin()
+        let gridOrigin = (x: boardRect.origin.x, y: boardRect.origin.y)
         
         if let context = UIGraphicsGetCurrentContext() {
             
             
             
-            let boardRect = self.boardRect()
             
             
-            
-            context.setLineWidth(3.0)
+            // Sets grid line color.
             UIColor.black.setStroke()
-            UIColor.blue.setFill()
             
-            context.stroke(boardRect)
+            let lineLength = boardRect.size.width
+            let distBetweenLines = boardRect.size.width/9
             
-            let squareSize = boardRect.size.width / 9
-            for r in 0 ..< 9 {
-                let vertRect = self.vertRect(row: r)
-                context.stroke(vertRect)
+            // Draw the grid rows.
+            for r in 0 ..< 10 {
                 
+                if r % 3 == 0 {
+                   context.setLineWidth(3.0)
+                }
+                else {
+                    context.setLineWidth(1.0)
+                }
+                context.stroke(CGRect(x: boardRect.origin.x,
+                                      y: boardRect.origin.y + CGFloat(r)*distBetweenLines,
+                                      width: lineLength, height: 0))
             }
             
+            // Draw the grid columns.
+            for c in 0 ..< 10 {
+                
+                if c % 3 == 0 {
+                    context.setLineWidth(3.0)
+                }
+                else {
+                    context.setLineWidth(1.0)
+                }
+                context.stroke(CGRect(x: boardRect.origin.x + CGFloat(c)*distBetweenLines,
+                                      y: boardRect.origin.y,
+                                      width: 0, height: lineLength))
+            }
             
             let number = 0 // XXX TEMP, REMOVE
             let col = 1

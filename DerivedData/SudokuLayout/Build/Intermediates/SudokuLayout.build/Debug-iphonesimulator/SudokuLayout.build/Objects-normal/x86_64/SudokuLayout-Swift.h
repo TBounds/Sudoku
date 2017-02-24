@@ -142,7 +142,6 @@ SWIFT_CLASS("_TtC12SudokuLayout10PuzzleView")
 @interface PuzzleView : UIView
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (CGPoint)getGridOrigin;
 - (CGRect)boardRect;
 - (void)drawRect:(CGRect)rect;
 @end
