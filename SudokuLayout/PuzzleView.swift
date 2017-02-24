@@ -33,6 +33,16 @@ class PuzzleView: UIView {
         return boardRect
     }
     
+    func vertRect(row: Int) -> CGRect {
+        let margin : CGFloat = 10
+        let size = ceil((min(self.bounds.width, self.bounds.height) - margin)/8.0)*8.0
+        let center = CGPoint(x: self.bounds.width/2,
+                             y :self.bounds.height/2)
+        let boardRect = CGRect(x: center.x - size/2,
+                               y: center.y - size/2,
+                               width: size, height: size)
+        return boardRect
+    }
 //    func handleTap(sender : UIGestureRecognizer) {
 //        let tapPoint = sender.location(in: self)
 //        // ... compute gridOrigin and d as done in drawRect ...
@@ -77,7 +87,11 @@ class PuzzleView: UIView {
         
         if let context = UIGraphicsGetCurrentContext() {
             
+            
+            
             let boardRect = self.boardRect()
+            
+            
             
             context.setLineWidth(3.0)
             UIColor.black.setStroke()
@@ -87,7 +101,8 @@ class PuzzleView: UIView {
             
             let squareSize = boardRect.size.width / 9
             for r in 0 ..< 9 {
-                context.stroke()
+                let vertRect = self.vertRect(row: r)
+                context.stroke(vertRect)
                 
             }
             
@@ -114,3 +129,4 @@ class PuzzleView: UIView {
  
 
 }
+
