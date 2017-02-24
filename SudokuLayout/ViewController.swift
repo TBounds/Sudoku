@@ -21,6 +21,18 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func tileSelected(_ sender: UIButton) {
+        //let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+        //let board = AppDelegate.board
+        
+        NSLog("\(sender.tag)")
+        
+    }
+    
+    
+    @IBAction func deleteSelected(_ sender: UIButton) {
+    }
+    
 
 }
 

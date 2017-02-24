@@ -147,14 +147,23 @@ SWIFT_CLASS("_TtC12SudokuLayout10PuzzleView")
 - (void)addMyTapGestureRecognizer;
 - (void)handleTap:(UIGestureRecognizer * _Nonnull)sender;
 - (void)drawRect:(CGRect)rect;
+@property (nonatomic, readonly, copy) NSArray<NSArray<NSNumber *> *> * _Nonnull buttonTagsPortrait;
+@property (nonatomic, readonly, copy) NSArray<NSArray<NSNumber *> *> * _Nonnull buttonTagsPortraitTall;
+@property (nonatomic, readonly, copy) NSArray<NSArray<NSNumber *> *> * _Nonnull buttonTagsLandscape;
+@property (nonatomic, readonly, copy) NSArray<NSArray<NSNumber *> *> * _Nonnull buttonTagsLandscapeTall;
+@property (nonatomic, readonly, copy) NSArray<NSNumber *> * _Nonnull aspectRatiosForLayouts;
+- (void)layoutSubviews;
 @end
 
+@class UIButton;
 @class NSBundle;
 
 SWIFT_CLASS("_TtC12SudokuLayout14ViewController")
 @interface ViewController : UIViewController
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
+- (IBAction)tileSelected:(UIButton * _Nonnull)sender;
+- (IBAction)deleteSelected:(UIButton * _Nonnull)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
