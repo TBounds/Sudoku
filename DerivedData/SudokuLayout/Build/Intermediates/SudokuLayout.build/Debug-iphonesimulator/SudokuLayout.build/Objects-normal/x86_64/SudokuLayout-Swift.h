@@ -137,12 +137,15 @@ SWIFT_CLASS("_TtC12SudokuLayout11AppDelegate")
 @end
 
 @class NSCoder;
+@class UIGestureRecognizer;
 
 SWIFT_CLASS("_TtC12SudokuLayout10PuzzleView")
 @interface PuzzleView : UIView
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (CGRect)boardRect;
+- (void)addMyTapGestureRecognizer;
+- (void)handleTap:(UIGestureRecognizer * _Nonnull)sender;
 - (void)drawRect:(CGRect)rect;
 @end
 

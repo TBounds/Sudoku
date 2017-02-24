@@ -12,6 +12,7 @@
 		F80A632F1E4A39A7006F1E84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F80A632D1E4A39A7006F1E84 /* Main.storyboard */; };
 		F80A63311E4A39A7006F1E84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F80A63301E4A39A7006F1E84 /* Assets.xcassets */; };
 		F80A63341E4A39A7006F1E84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F80A63321E4A39A7006F1E84 /* LaunchScreen.storyboard */; };
+		F82BC4061E60E2F9005589AD /* SudokuPuzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC4051E60E2F9005589AD /* SudokuPuzzle.swift */; };
 		F8904AA51E5F6E96001A7F84 /* PuzzleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8904AA41E5F6E96001A7F84 /* PuzzleView.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		F80A63301E4A39A7006F1E84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F80A63331E4A39A7006F1E84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F80A63351E4A39A7006F1E84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F82BC4051E60E2F9005589AD /* SudokuPuzzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudokuPuzzle.swift; sourceTree = "<group>"; };
 		F8904AA41E5F6E96001A7F84 /* PuzzleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +61,7 @@
 				F80A63291E4A39A7006F1E84 /* AppDelegate.swift */,
 				F80A632B1E4A39A7006F1E84 /* ViewController.swift */,
 				F8904AA41E5F6E96001A7F84 /* PuzzleView.swift */,
+				F82BC4051E60E2F9005589AD /* SudokuPuzzle.swift */,
 				F80A632D1E4A39A7006F1E84 /* Main.storyboard */,
 				F80A63301E4A39A7006F1E84 /* Assets.xcassets */,
 				F80A63321E4A39A7006F1E84 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			files = (
 				F80A632C1E4A39A7006F1E84 /* ViewController.swift in Sources */,
 				F80A632A1E4A39A7006F1E84 /* AppDelegate.swift in Sources */,
+				F82BC4061E60E2F9005589AD /* SudokuPuzzle.swift in Sources */,
 				F8904AA51E5F6E96001A7F84 /* PuzzleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
