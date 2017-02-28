@@ -160,6 +160,7 @@ SWIFT_CLASS("_TtC12SudokuLayout10PuzzleView")
 
 SWIFT_CLASS("_TtC12SudokuLayout14ViewController")
 @interface ViewController : UIViewController
+@property (nonatomic) BOOL pencilEnabled;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (IBAction)tileSelected:(UIButton * _Nonnull)sender;

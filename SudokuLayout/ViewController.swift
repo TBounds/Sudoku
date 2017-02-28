@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var pencilEnabled : Bool = false  // controller property
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -36,6 +38,9 @@ class ViewController: UIViewController {
     
     @IBAction func pencilSelected(_ sender: UIButton) {
         NSLog("\(sender.tag)")
+        
+        pencilEnabled = !pencilEnabled   // toggle
+        sender.isSelected = pencilEnabled
     }
 
     @IBAction func menuSelected(_ sender: UIButton) {

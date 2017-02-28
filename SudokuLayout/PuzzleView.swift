@@ -10,6 +10,7 @@ import UIKit
 
 class PuzzleView: UIView {
     
+    
     var selected = (row: -1, column: -1)
     
     required override init(frame: CGRect) {
