@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.sudoku = SudokuPuzzle()
         
+        // Load new puzzle if there is none saved in the sandbox. XXX TODO
+        self.sudoku!.loadPuzzle(puzzleString: "simple")
+        
         return true
     }
 

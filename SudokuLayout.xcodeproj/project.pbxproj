@@ -13,6 +13,7 @@
 		F80A63311E4A39A7006F1E84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F80A63301E4A39A7006F1E84 /* Assets.xcassets */; };
 		F80A63341E4A39A7006F1E84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F80A63321E4A39A7006F1E84 /* LaunchScreen.storyboard */; };
 		F82BC4061E60E2F9005589AD /* SudokuPuzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC4051E60E2F9005589AD /* SudokuPuzzle.swift */; };
+		F84925751E650A0D005F44D9 /* simple.plist in Resources */ = {isa = PBXBuildFile; fileRef = F84925741E650A0D005F44D9 /* simple.plist */; };
 		F8904AA51E5F6E96001A7F84 /* PuzzleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8904AA41E5F6E96001A7F84 /* PuzzleView.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		F80A63331E4A39A7006F1E84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F80A63351E4A39A7006F1E84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F82BC4051E60E2F9005589AD /* SudokuPuzzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudokuPuzzle.swift; sourceTree = "<group>"; };
+		F84925741E650A0D005F44D9 /* simple.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = simple.plist; path = ../../../../Network/Servers/fs.labs.encs/Volumes/raid1/users_a/t.bounds/Downloads/simple.plist; sourceTree = "<group>"; };
 		F8904AA41E5F6E96001A7F84 /* PuzzleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +67,7 @@
 				F80A632D1E4A39A7006F1E84 /* Main.storyboard */,
 				F80A63301E4A39A7006F1E84 /* Assets.xcassets */,
 				F80A63321E4A39A7006F1E84 /* LaunchScreen.storyboard */,
+				F84925741E650A0D005F44D9 /* simple.plist */,
 				F80A63351E4A39A7006F1E84 /* Info.plist */,
 			);
 			path = SudokuLayout;
@@ -129,6 +132,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F84925751E650A0D005F44D9 /* simple.plist in Resources */,
 				F80A63341E4A39A7006F1E84 /* LaunchScreen.storyboard in Resources */,
 				F80A63311E4A39A7006F1E84 /* Assets.xcassets in Resources */,
 				F80A632F1E4A39A7006F1E84 /* Main.storyboard in Resources */,

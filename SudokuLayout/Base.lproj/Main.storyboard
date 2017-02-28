@@ -52,7 +52,7 @@
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                 <state key="normal" title="X"/>
                                                 <connections>
-                                                    <action selector="tileSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZNr-Pq-FMQ"/>
+                                                    <action selector="deleteSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IWS-YJ-ZA4"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="12" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tAr-f2-8z2">
@@ -61,6 +61,9 @@
                                                 <color key="backgroundColor" red="0.66043762660000005" green="0.72239780040000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                 <state key="normal" title="M"/>
+                                                <connections>
+                                                    <action selector="menuSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7d3-Op-tkM"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81k-jm-ikN">
                                                 <rect key="frame" x="85" y="92" width="55" height="55"/>
@@ -138,6 +141,9 @@
                                                 <color key="backgroundColor" red="0.66043762660000005" green="0.72239780040000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                 <state key="normal" title="9"/>
+                                                <connections>
+                                                    <action selector="tileSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Xn-Cd-qth"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUr-y3-jhq">
                                                 <rect key="frame" x="274" y="155" width="55" height="55"/>
@@ -145,6 +151,9 @@
                                                 <color key="backgroundColor" red="0.66043762660000005" green="0.72239780040000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                 <state key="normal" title="P"/>
+                                                <connections>
+                                                    <action selector="pencilSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MOR-EH-ldJ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.97241526840000003" green="0.98612374069999997" blue="0.88197785620000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

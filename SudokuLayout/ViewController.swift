@@ -31,8 +31,15 @@ class ViewController: UIViewController {
     
     
     @IBAction func deleteSelected(_ sender: UIButton) {
+        NSLog("\(sender.tag)")
     }
     
+    @IBAction func pencilSelected(_ sender: UIButton) {
+        NSLog("\(sender.tag)")
+    }
 
+    @IBAction func menuSelected(_ sender: UIButton) {
+        NSLog("\(sender.tag)")
+    }
 }
 

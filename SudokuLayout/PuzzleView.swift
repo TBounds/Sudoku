@@ -73,6 +73,10 @@ class PuzzleView: UIView {
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let puzzle = appDelegate.sudoku // fetch model data
+
+        
         // Drawing code
         let boldFont = UIFont(name: "Helvetica", size: 30)
         let fixedAttributes = [NSFontAttributeName : boldFont!, NSForegroundColorAttributeName: UIColor.black]
@@ -134,22 +138,32 @@ class PuzzleView: UIView {
                 let y = boardRect.origin.y + CGFloat(selected.row)*distBetweenLines
                 context.fill(CGRect(x: x, y: y, width: distBetweenLines - 0.5, height: distBetweenLines - 0.5))
             }
+           
             
-            let number = 0 // XXX TEMP, REMOVE
-            let col = 1
-            let row = 0
+            // Draw cells of sudoku puzzle.
+            for row in 0 ..< 9 {
+                for col in 0 ..< 9 {
+                    
+                    if puzzle!.puzzle[row][col].number != 0 {
+                        let text = "\(puzzle!.puzzle[row][col].number)" as NSString
+                        let textSize = text.size(attributes: fixedAttributes)
+                        let x = gridOrigin.x + CGFloat(col)*d + 0.5*(d - textSize.width)
+                        let y = gridOrigin.y + CGFloat(row)*d + 0.5*(d - textSize.height)
+                        let textRect = CGRect(x: x, y: y, width: textSize.width, height: textSize.height)
+                        text.draw(in: textRect, withAttributes: fixedAttributes)
+                    }
+                    
+                }
+                
+            }
             
-            let text = "\(number)" as NSString
-            let textSize = text.size(attributes: fixedAttributes)
-            let x = gridOrigin.x + CGFloat(col)*d + 0.5*(d - textSize.width)
-            let y = gridOrigin.y + CGFloat(row)*d + 0.5*(d - textSize.height)
-            let textRect = CGRect(x: x, y: y, width: textSize.width, height: textSize.height)
-            text.draw(in: textRect, withAttributes: fixedAttributes)
         }
         
     }
     
-    // Programmtically managing button layout.
+    //---------------------------------------------------//
+    //----- Programmtically managing button layout. -----//
+    //---------------------------------------------------//
     let buttonTagsPortrait = [  // 2x6 button layout
         [1, 2, 3, 4, 5, 11],    // tags assigned in IB
         [6, 7, 8, 9, 10, 12]

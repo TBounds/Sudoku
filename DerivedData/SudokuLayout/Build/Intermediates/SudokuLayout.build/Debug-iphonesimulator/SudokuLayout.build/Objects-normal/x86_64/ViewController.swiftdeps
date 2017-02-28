@@ -6,21 +6,25 @@ provides-nominal:
 provides-member:
 - ["C12SudokuLayout14ViewController", ""]
 provides-dynamic-lookup:
+- "menuSelected"
+- "viewDidLoad"
+- "pencilSelected"
 - "didReceiveMemoryWarning"
 - "deleteSelected"
 - "tileSelected"
-- "viewDidLoad"
 depends-top-level:
-- !private "StringLiteralType"
-- "UIButton"
-- "ViewController"
-- "UIViewController"
 - !private "NSLog"
+- !private "StringLiteralType"
+- "UIViewController"
+- "ViewController"
+- "UIButton"
 depends-member:
 - !private ["Ps9AnyObject", "NSLog"]
 - ["Ps9AnyObject", "deleteSelected"]
 - ["Ps9AnyObject", "didReceiveMemoryWarning"]
 - !private ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "menuSelected"]
+- ["Ps9AnyObject", "pencilSelected"]
 - !private ["Ps9AnyObject", "tag"]
 - ["Ps9AnyObject", "tileSelected"]
 - ["Ps9AnyObject", "viewDidLoad"]
@@ -31,6 +35,8 @@ depends-member:
 - ["Ps7CVarArg", "deleteSelected"]
 - ["Ps7CVarArg", "didReceiveMemoryWarning"]
 - !private ["Ps7CVarArg", "init"]
+- ["Ps7CVarArg", "menuSelected"]
+- ["Ps7CVarArg", "pencilSelected"]
 - !private ["Ps7CVarArg", "tag"]
 - ["Ps7CVarArg", "tileSelected"]
 - ["Ps7CVarArg", "viewDidLoad"]
@@ -41,6 +47,8 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "deleteSelected"]
 - ["Ps28CustomDebugStringConvertible", "didReceiveMemoryWarning"]
 - !private ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "menuSelected"]
+- ["Ps28CustomDebugStringConvertible", "pencilSelected"]
 - !private ["Ps28CustomDebugStringConvertible", "tag"]
 - ["Ps28CustomDebugStringConvertible", "tileSelected"]
 - ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
@@ -51,6 +59,8 @@ depends-member:
 - ["Ps23CustomStringConvertible", "deleteSelected"]
 - ["Ps23CustomStringConvertible", "didReceiveMemoryWarning"]
 - !private ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "menuSelected"]
+- ["Ps23CustomStringConvertible", "pencilSelected"]
 - !private ["Ps23CustomStringConvertible", "tag"]
 - ["Ps23CustomStringConvertible", "tileSelected"]
 - ["Ps23CustomStringConvertible", "viewDidLoad"]
@@ -60,6 +70,8 @@ depends-member:
 - ["Ps9Equatable", "deleteSelected"]
 - ["Ps9Equatable", "didReceiveMemoryWarning"]
 - !private ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "menuSelected"]
+- ["Ps9Equatable", "pencilSelected"]
 - !private ["Ps9Equatable", "tag"]
 - ["Ps9Equatable", "tileSelected"]
 - ["Ps9Equatable", "viewDidLoad"]
@@ -73,6 +85,8 @@ depends-member:
 - ["Ps8Hashable", "deleteSelected"]
 - ["Ps8Hashable", "didReceiveMemoryWarning"]
 - !private ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "menuSelected"]
+- ["Ps8Hashable", "pencilSelected"]
 - !private ["Ps8Hashable", "tag"]
 - ["Ps8Hashable", "tileSelected"]
 - ["Ps8Hashable", "viewDidLoad"]
@@ -89,6 +103,8 @@ depends-member:
 - ["PSo8NSCoding", "deleteSelected"]
 - ["PSo8NSCoding", "didReceiveMemoryWarning"]
 - !private ["PSo8NSCoding", "init"]
+- ["PSo8NSCoding", "menuSelected"]
+- ["PSo8NSCoding", "pencilSelected"]
 - !private ["PSo8NSCoding", "tag"]
 - ["PSo8NSCoding", "tileSelected"]
 - ["PSo8NSCoding", "viewDidLoad"]
@@ -98,6 +114,8 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "deleteSelected"]
 - ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
 - !private ["PSo26NSExtensionRequestHandling", "init"]
+- ["PSo26NSExtensionRequestHandling", "menuSelected"]
+- ["PSo26NSExtensionRequestHandling", "pencilSelected"]
 - ["PSo26NSExtensionRequestHandling", "tileSelected"]
 - ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
 - ["PSo26NSExtensionRequestHandling", ""]
@@ -107,6 +125,8 @@ depends-member:
 - ["CSo8NSObject", "deleteSelected"]
 - ["CSo8NSObject", "didReceiveMemoryWarning"]
 - ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "menuSelected"]
+- ["CSo8NSObject", "pencilSelected"]
 - !private ["CSo8NSObject", "tag"]
 - ["CSo8NSObject", "tileSelected"]
 - ["CSo8NSObject", "viewDidLoad"]
@@ -114,6 +134,8 @@ depends-member:
 - ["PSo16NSObjectProtocol", "deleteSelected"]
 - ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
 - !private ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "menuSelected"]
+- ["PSo16NSObjectProtocol", "pencilSelected"]
 - !private ["PSo16NSObjectProtocol", "tag"]
 - ["PSo16NSObjectProtocol", "tileSelected"]
 - ["PSo16NSObjectProtocol", "viewDidLoad"]
@@ -131,6 +153,8 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "deleteSelected"]
 - ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
 - !private ["PSo21UIAppearanceContainer", "init"]
+- ["PSo21UIAppearanceContainer", "menuSelected"]
+- ["PSo21UIAppearanceContainer", "pencilSelected"]
 - !private ["PSo21UIAppearanceContainer", "tag"]
 - ["PSo21UIAppearanceContainer", "tileSelected"]
 - ["PSo21UIAppearanceContainer", "viewDidLoad"]
@@ -141,6 +165,8 @@ depends-member:
 - ["PSo18UIContentContainer", "deleteSelected"]
 - ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
 - !private ["PSo18UIContentContainer", "init"]
+- ["PSo18UIContentContainer", "menuSelected"]
+- ["PSo18UIContentContainer", "pencilSelected"]
 - ["PSo18UIContentContainer", "tileSelected"]
 - ["PSo18UIContentContainer", "viewDidLoad"]
 - ["PSo18UIContentContainer", ""]
@@ -151,6 +177,8 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "deleteSelected"]
 - ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
 - !private ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "menuSelected"]
+- ["PSo18UIFocusEnvironment", "pencilSelected"]
 - !private ["PSo18UIFocusEnvironment", "tag"]
 - ["PSo18UIFocusEnvironment", "tileSelected"]
 - ["PSo18UIFocusEnvironment", "viewDidLoad"]
@@ -161,6 +189,8 @@ depends-member:
 - ["CSo11UIResponder", "deleteSelected"]
 - ["CSo11UIResponder", "didReceiveMemoryWarning"]
 - ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "menuSelected"]
+- ["CSo11UIResponder", "pencilSelected"]
 - !private ["CSo11UIResponder", "tag"]
 - ["CSo11UIResponder", "tileSelected"]
 - ["CSo11UIResponder", "viewDidLoad"]
@@ -168,6 +198,8 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "deleteSelected"]
 - ["PSo30UIResponderStandardEditActions", "didReceiveMemoryWarning"]
 - !private ["PSo30UIResponderStandardEditActions", "init"]
+- ["PSo30UIResponderStandardEditActions", "menuSelected"]
+- ["PSo30UIResponderStandardEditActions", "pencilSelected"]
 - !private ["PSo30UIResponderStandardEditActions", "tag"]
 - ["PSo30UIResponderStandardEditActions", "tileSelected"]
 - ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
@@ -176,6 +208,8 @@ depends-member:
 - ["PSo16UIStateRestoring", "deleteSelected"]
 - ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
 - !private ["PSo16UIStateRestoring", "init"]
+- ["PSo16UIStateRestoring", "menuSelected"]
+- ["PSo16UIStateRestoring", "pencilSelected"]
 - ["PSo16UIStateRestoring", "tileSelected"]
 - ["PSo16UIStateRestoring", "viewDidLoad"]
 - ["PSo16UIStateRestoring", ""]
@@ -183,6 +217,8 @@ depends-member:
 - ["PSo18UITraitEnvironment", "deleteSelected"]
 - ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
 - !private ["PSo18UITraitEnvironment", "init"]
+- ["PSo18UITraitEnvironment", "menuSelected"]
+- ["PSo18UITraitEnvironment", "pencilSelected"]
 - !private ["PSo18UITraitEnvironment", "tag"]
 - ["PSo18UITraitEnvironment", "tileSelected"]
 - ["PSo18UITraitEnvironment", "viewDidLoad"]
@@ -194,6 +230,8 @@ depends-member:
 - ["CSo16UIViewController", "deleteSelected"]
 - ["CSo16UIViewController", "didReceiveMemoryWarning"]
 - ["CSo16UIViewController", "init"]
+- ["CSo16UIViewController", "menuSelected"]
+- ["CSo16UIViewController", "pencilSelected"]
 - ["CSo16UIViewController", "tileSelected"]
 - ["CSo16UIViewController", "viewDidLoad"]
 - ["CSo16UIViewController", ""]
@@ -209,6 +247,8 @@ depends-member:
 - ["C12SudokuLayout14ViewController", "deleteSelected"]
 - ["C12SudokuLayout14ViewController", "didReceiveMemoryWarning"]
 - ["C12SudokuLayout14ViewController", "init"]
+- ["C12SudokuLayout14ViewController", "menuSelected"]
+- ["C12SudokuLayout14ViewController", "pencilSelected"]
 - ["C12SudokuLayout14ViewController", "tileSelected"]
 - ["C12SudokuLayout14ViewController", "viewDidLoad"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "tag"]
@@ -221,6 +261,8 @@ depends-member:
 - ["Ps9_Hashable", "deleteSelected"]
 - ["Ps9_Hashable", "didReceiveMemoryWarning"]
 - !private ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "menuSelected"]
+- ["Ps9_Hashable", "pencilSelected"]
 - !private ["Ps9_Hashable", "tag"]
 - ["Ps9_Hashable", "tileSelected"]
 - ["Ps9_Hashable", "viewDidLoad"]
@@ -308,4 +350,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
-interface-hash: "fd7bbab96461bb5a49f5233416a18e50"
+interface-hash: "cf34d498d78bfe9715d546a11a56817b"
