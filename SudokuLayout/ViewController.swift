@@ -116,18 +116,19 @@ class ViewController: UIViewController {
             title: "New Easy Game",
             style: .default,
             handler: { (UIAlertAction) -> Void in
-                let puzzleStr = randomPuzzle(appDelegate.simplePuzzles)
-                puzzle.loadPuzzle(puzzleStr)
+                appDelegate.sudoku = SudokuPuzzle()
+                // let puzzleStr = randomPuzzle(appDelegate.simplePuzzles)
+                appDelegate.sudoku?.loadPuzzle(puzzleString: "simple")
                 // self.selectFirstAvailableCell()
                 self.puzzleView.setNeedsDisplay()}))
         //     ... add other actions ...
-        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
-            let popoverPresenter = alertController.popoverPresentationController
-            let menuButtonTag = 12
-            let menuButton = buttonsView.viewWithTag(menuButtonTag)
-            popoverPresenter?.sourceView = menuButton
-            popoverPresenter?.sourceRect = (menuButton?.bounds)!
-        }
+//        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
+//            let popoverPresenter = alertController.popoverPresentationController
+//            let menuButtonTag = 12
+//            let menuButton = buttonsView.viewWithTag(menuButtonTag)
+//            popoverPresenter?.sourceView = menuButton
+//            popoverPresenter?.sourceRect = (menuButton?.bounds)!
+//        }
         self.present(alertController, animated: true, completion: nil)
     }
 }

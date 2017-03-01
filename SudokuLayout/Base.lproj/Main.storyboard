@@ -62,7 +62,7 @@
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                 <state key="normal" title="M"/>
                                                 <connections>
-                                                    <action selector="menuSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7d3-Op-tkM"/>
+                                                    <action selector="mainMenuWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e9e-Dq-5je"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81k-jm-ikN">
