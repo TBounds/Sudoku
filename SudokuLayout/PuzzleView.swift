@@ -11,7 +11,7 @@ import UIKit
 class PuzzleView: UIView {
     
     
-    var selected = (row: -1, column: -1)
+    var selected: (row: Int, column: Int) = (row: -1, column: -1)
     
     required override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,6 +62,9 @@ class PuzzleView: UIView {
                     
                     selected.row = row  // then select cell
                     selected.column = col
+                    
+                    NSLog("PuzzleView. row = \(selected.row), column = \(selected.column)")
+                    
                     setNeedsDisplay()   // request redraw
                     
                     
@@ -80,7 +83,12 @@ class PuzzleView: UIView {
         
         // Drawing code
         let boldFont = UIFont(name: "Helvetica", size: 30)
+        let tinyFont = UIFont(name: "Helvetica", size: 6)
+        
         let fixedAttributes = [NSFontAttributeName : boldFont!, NSForegroundColorAttributeName: UIColor.black]
+        let nonFixedAttributes = [NSFontAttributeName : boldFont!, NSForegroundColorAttributeName: UIColor.darkGray]
+        let pencilAttributes = [NSFontAttributeName : tinyFont!, NSForegroundColorAttributeName: UIColor.darkGray]
+
         
         let boardRect = self.boardRect()
         
@@ -88,14 +96,11 @@ class PuzzleView: UIView {
         let gridSize = boardRect.width
         let delta = gridSize/3
         let d = delta/3
-        // let s = d/3
+        let s = d/3
         
         let gridOrigin = (x: boardRect.origin.x, y: boardRect.origin.y)
         
         if let context = UIGraphicsGetCurrentContext() {
-            
-            
-            
             
             
             // Sets grid line color.
@@ -103,6 +108,14 @@ class PuzzleView: UIView {
             
             let lineLength = boardRect.size.width
             let distBetweenLines = boardRect.size.width/9
+            
+            // Highlights selected cell.
+            if selected.row >= 0 && selected.column >= 0 {
+                UIColor.red.setFill()
+                let x = boardRect.origin.x + CGFloat(selected.column)*distBetweenLines
+                let y = boardRect.origin.y + CGFloat(selected.row)*distBetweenLines
+                context.fill(CGRect(x: x, y: y, width: distBetweenLines - 0.5, height: distBetweenLines - 0.5))
+            }
             
             // Draw the grid rows.
             for r in 0 ..< 10 {
@@ -131,14 +144,6 @@ class PuzzleView: UIView {
                                       y: boardRect.origin.y,
                                       width: 0, height: lineLength))
             }
-            
-            // Highlights selected cell.
-            if selected.row >= 0 && selected.column >= 0 {
-                UIColor.red.setFill()
-                let x = boardRect.origin.x + CGFloat(selected.column)*distBetweenLines
-                let y = boardRect.origin.y + CGFloat(selected.row)*distBetweenLines
-                context.fill(CGRect(x: x, y: y, width: distBetweenLines - 0.5, height: distBetweenLines - 0.5))
-            }
            
             
             // Draw cells of sudoku puzzle.
@@ -151,8 +156,39 @@ class PuzzleView: UIView {
                         let x = gridOrigin.x + CGFloat(col)*d + 0.5*(d - textSize.width)
                         let y = gridOrigin.y + CGFloat(row)*d + 0.5*(d - textSize.height)
                         let textRect = CGRect(x: x, y: y, width: textSize.width, height: textSize.height)
-                        text.draw(in: textRect, withAttributes: fixedAttributes)
+                        
+                        // Draw fixed numbers in cell.
+                        if puzzle!.puzzle[row][col].isFixed{
+                            text.draw(in: textRect, withAttributes: fixedAttributes)
+                        }
+                        // Draw non-fixed numbers in cell.
+                        else if !(puzzle!.anyPencilSetAtCell(row: row, column: col)) {
+                            text.draw(in: textRect, withAttributes: nonFixedAttributes)
+                        }
+                        
                     }
+                    
+                    // Draw penciled values.
+                    if (puzzle!.anyPencilSetAtCell(row: row, column: col)){
+                        
+                        for i in 1 ..< 10 {
+                            if puzzle!.isSetPencil(n: i, row: row, column: col) {
+                                // puzzle!.puzzle[row][col].pencils[i]
+                                let s2 = s*CGFloat(i)
+                                
+                                let text = "\(i)" as NSString
+                                let textSize = text.size(attributes: pencilAttributes)
+                                let x = gridOrigin.x + CGFloat(col)*d + 0.5*(s2 - textSize.width)
+                                let y = gridOrigin.y + CGFloat(row)*d + 0.5*(s - textSize.height)
+                                let textRect = CGRect(x: x, y: y, width: textSize.width, height: textSize.height)
+                                
+                                text.draw(in: textRect, withAttributes: pencilAttributes)
+                                NSLog("should print pencil value: \(i)")
+                            }
+                            
+                        }
+                    }
+                    
                     
                 }
                 

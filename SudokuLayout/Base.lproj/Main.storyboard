@@ -228,6 +228,9 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VeK-8l-mxh" secondAttribute="bottom" id="zon-3W-72h"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="puzzleView" destination="mSS-gh-XK4" id="2KC-p0-7mz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -62,8 +62,8 @@
 			children = (
 				F80A63291E4A39A7006F1E84 /* AppDelegate.swift */,
 				F80A632B1E4A39A7006F1E84 /* ViewController.swift */,
-				F8904AA41E5F6E96001A7F84 /* PuzzleView.swift */,
 				F82BC4051E60E2F9005589AD /* SudokuPuzzle.swift */,
+				F8904AA41E5F6E96001A7F84 /* PuzzleView.swift */,
 				F80A632D1E4A39A7006F1E84 /* Main.storyboard */,
 				F80A63301E4A39A7006F1E84 /* Assets.xcassets */,
 				F80A63321E4A39A7006F1E84 /* LaunchScreen.storyboard */,

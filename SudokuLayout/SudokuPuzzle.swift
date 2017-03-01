@@ -13,6 +13,7 @@ class SudokuPuzzle {
     struct PuzzleCell {
         var pencils: [Int] = Array(repeating: 0, count: 10) // Array of zeros to hold pencil values for a vell.
         var number: Int = 0
+        var isFixed: Bool = false
         
     }
     
@@ -55,6 +56,7 @@ class SudokuPuzzle {
             for c in 0 ..< 9 {
                 if puzzleElements[puzzleIndex] != "." {
                     puzzle[r][c].number = Int(puzzleElements[puzzleIndex])!
+                    puzzle[r][c].isFixed = true
                 }
                 
                 puzzleIndex += 1
@@ -82,11 +84,8 @@ class SudokuPuzzle {
     // Determines if cells contains fixed number.
     func numberIsFixedAtRow(row: Int, column: Int) -> Bool {
         
-        if puzzle[row][column].number != 0{
-            return true
-        }
-        
-        return false
+        return (puzzle[row][column].isFixed)
+    
     }
     
     // Does the number conflict w/ any other numbers in the same row, column, or 3x3
@@ -152,15 +151,16 @@ class SudokuPuzzle {
     // Is the value n penciled in?
     func isSetPencil(n: Int, row: Int, column: Int) -> Bool {
         
-        if puzzle[row][column].pencils[n] == 1 {
-            return true
-        }
+        // NSLog("row = \(row), col = \(column), n = \(n)")
+        return (puzzle[row][column].pencils[n] == 1)
         
-        return false
+        
     }
     
     // Pencil the value n in.
     func setPencil(n: Int, row: Int, column: Int) {
+        
+        // NSLog("row = \(row), col = \(column)")
         
         puzzle[row][column].pencils[n] = 1
         
