@@ -83,7 +83,7 @@ class PuzzleView: UIView {
         
         // Drawing code
         let boldFont = UIFont(name: "Helvetica", size: 30)
-        let tinyFont = UIFont(name: "Helvetica", size: 6)
+        let tinyFont = UIFont(name: "Helvetica", size: 10)
         
         let fixedAttributes = [NSFontAttributeName : boldFont!, NSForegroundColorAttributeName: UIColor.black]
         let nonFixedAttributes = [NSFontAttributeName : boldFont!, NSForegroundColorAttributeName: UIColor.darkGray]
@@ -169,26 +169,42 @@ class PuzzleView: UIView {
                     }
                     
                     // Draw penciled values.
-                    if (puzzle!.anyPencilSetAtCell(row: row, column: col)){
+                    if (puzzle!.anyPencilSetAtCell(row: row, column: col)) {
                         
-                        for i in 1 ..< 10 {
-                            if puzzle!.isSetPencil(n: i, row: row, column: col) {
-                                // puzzle!.puzzle[row][col].pencils[i]
-                                let s2 = s*CGFloat(i)
+                        // puzzle!.puzzle[row][col].pencils[i]
+                        // let s2 = s*CGFloat(i)
+                        
+                        var index = 1
+                        
+                        for r in 0 ..< 3 {
+                            for c in 0 ..< 3 {
                                 
-                                let text = "\(i)" as NSString
-                                let textSize = text.size(attributes: pencilAttributes)
-                                let x = gridOrigin.x + CGFloat(col)*d + 0.5*(s2 - textSize.width)
-                                let y = gridOrigin.y + CGFloat(row)*d + 0.5*(s - textSize.height)
-                                let textRect = CGRect(x: x, y: y, width: textSize.width, height: textSize.height)
+                                if puzzle!.isSetPencil(n: index, row: row, column: col) {
+                                    
+                                    let text = "\(index)" as NSString
+                                    let textSize = text.size(attributes: pencilAttributes)
+                                    
+                                    
+                                    let sr = s*2*CGFloat(r) + s
+                                    let sc = s*2*CGFloat(c) + s
+                                    
+                                    let x = gridOrigin.x + CGFloat(col)*d + 0.5*(sc - textSize.width)
+                                    let y = gridOrigin.y + CGFloat(row)*d + 0.5*(sr - textSize.height)
+                                    let textRect = CGRect(x: x, y: y, width: textSize.width, height: textSize.height)
+                                    
+                                    text.draw(in: textRect, withAttributes: pencilAttributes)
+                                    
+                                }
                                 
-                                text.draw(in: textRect, withAttributes: pencilAttributes)
-                                NSLog("should print pencil value: \(i)")
+                                index += 1
+                                
                             }
                             
+                            // NSLog("should print pencil value: \(i)")
+                            
                         }
+                        
                     }
-                    
                     
                 }
                 

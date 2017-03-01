@@ -36,13 +36,18 @@ class ViewController: UIViewController {
         
         NSLog("\(tag)")
         
-        if(pencilEnabled && !(puzzle?.isSetPencil(n: tag, row: row, column: col))!) {
+        if(pencilEnabled) {
             
             NSLog("cell = \(puzzleView.selected)")
             
             // puzzle?.setPencil(n: sender.tag, row: puzzleView.selected.row, column: 0)
+            if puzzle!.isSetPencil(n: sender.tag, row: row, column: col){
+                puzzle?.clearPencil(n: sender.tag, row: row, column: col)
+            }
+            else {
+                puzzle?.setPencil(n: sender.tag, row: puzzleView.selected.row, column: puzzleView.selected.column)
+            }
             
-            puzzle?.setPencil(n: sender.tag, row: puzzleView.selected.row, column: puzzleView.selected.column)
             
             NSLog("pencil values = \(puzzle?.puzzle[row][col].pencils)")
             
@@ -59,6 +64,34 @@ class ViewController: UIViewController {
     
     @IBAction func deleteSelected(_ sender: UIButton) {
         NSLog("\(sender.tag)")
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let puzzle = appDelegate.sudoku
+        
+        let row = puzzleView.selected.row
+        let col = puzzleView.selected.column
+        
+        if pencilEnabled && puzzle!.anyPencilSetAtCell(row: row, column: col){
+            
+            let alertController = UIAlertController(
+                            title: "Deleting all penciled in values.",
+                            message: "Are you sure?",
+                            preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(
+                            title: "Cancel",
+                            style: .cancel,
+                            handler: nil))
+                        alertController.addAction(UIAlertAction(
+                            title: "Okay",
+                            style: .default,
+                            handler: { (UIAlertAction) -> Void in
+                                puzzle!.clearAllPencils(row: row, column: col)
+                                self.puzzleView.setNeedsDisplay() }))
+            
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+        
     }
     
     @IBAction func pencilSelected(_ sender: UIButton) {
@@ -68,34 +101,34 @@ class ViewController: UIViewController {
         sender.isSelected = pencilEnabled
     }
 
-//    @IBAction func mainMenu(sender: AnyObject) {
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let puzzle = appDelegate.sudoku
-//        let alertController = UIAlertController(
-//            title: "Main Menu",
-//            message: nil,
-//            preferredStyle: .ActionSheet)
-//        alertController.addAction(UIAlertAction(
-//            title: "Cancel",
-//            style: .Cancel,
-//            handler: nil))
-//        alertController.addAction(UIAlertAction(
-//            title: "New Easy Game",
-//            style: .Default,
-//            handler: { (UIAlertAction) -> Void in
-//                let puzzleStr = randomPuzzle(appDelegate.simplePuzzles)
-//                puzzle.loadPuzzle(puzzleStr)
-//                self.selectFirstAvailableCell()
-//                self.puzzleView.setNeedsDisplay()}))
-//            ... add other actions ...
-//        if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
-//            let popoverPresenter = alertController.popoverPresentationController
-//            let menuButtonTag = 12
-//            let menuButton = buttonsView.viewWithTag(menuButtonTag)
-//            popoverPresenter?.sourceView = menuButton
-//            popoverPresenter?.sourceRect = (menuButton?.bounds)!
-//        }
-//        self.presentViewController(alertController, animated: true, completion: nil)
-//    }
+    @IBAction func mainMenu(sender: AnyObject) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let puzzle = appDelegate.sudoku
+        let alertController = UIAlertController(
+            title: "Main Menu",
+            message: nil,
+            preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(
+            title: "Cancel",
+            style: .cancel,
+            handler: nil))
+        alertController.addAction(UIAlertAction(
+            title: "New Easy Game",
+            style: .default,
+            handler: { (UIAlertAction) -> Void in
+                let puzzleStr = randomPuzzle(appDelegate.simplePuzzles)
+                puzzle.loadPuzzle(puzzleStr)
+                // self.selectFirstAvailableCell()
+                self.puzzleView.setNeedsDisplay()}))
+        //     ... add other actions ...
+        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
+            let popoverPresenter = alertController.popoverPresentationController
+            let menuButtonTag = 12
+            let menuButton = buttonsView.viewWithTag(menuButtonTag)
+            popoverPresenter?.sourceView = menuButton
+            popoverPresenter?.sourceRect = (menuButton?.bounds)!
+        }
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
 
