@@ -6,42 +6,42 @@ provides-nominal:
 provides-member:
 - ["C12SudokuLayout14ViewController", ""]
 provides-dynamic-lookup:
-- "MAX_NUM_CELLS"
-- "didReceiveMemoryWarning"
-- "pencilEnabled"
-- "puzzleView"
+- "remainingOpenCells"
 - "tileSelected"
 - "viewDidLoad"
-- "deleteSelected"
-- "remainingOpenCells"
-- "mainMenu"
+- "puzzleView"
 - "pencilSelected"
+- "pencilEnabled"
+- "MAX_NUM_CELLS"
+- "didReceiveMemoryWarning"
+- "deleteSelected"
+- "mainMenu"
 depends-top-level:
+- "ViewController"
+- "AssignmentPrecedence"
+- !private "!"
+- !private "AppDelegate"
 - !private "SudokuPuzzle"
-- "UIViewController"
-- !private "NSLog"
+- !private "StringLiteralType"
+- "Int"
 - !private "UIAlertAction"
+- !private "UIApplication"
+- "BooleanLiteralType"
+- "AnyObject"
+- !private "+="
+- "Bool"
+- !private "NSLog"
+- "PuzzleView"
+- "UIViewController"
+- !private "!="
+- !private "Void"
+- !private "UIAlertController"
+- "CastingPrecedence"
 - !private "-="
 - "UIButton"
-- !private "+="
-- "PuzzleView"
-- !private "=="
-- "AssignmentPrecedence"
-- "CastingPrecedence"
-- !private "&&"
-- !private "UIApplication"
-- !private "UIAlertController"
-- !private "!="
-- "Bool"
-- !private "StringLiteralType"
-- !private "!"
 - !private "-"
-- !private "Void"
-- "Int"
-- "BooleanLiteralType"
-- "ViewController"
-- "AnyObject"
-- !private "AppDelegate"
+- !private "=="
+- !private "&&"
 depends-member:
 - ["Ps9AnyObject", "MAX_NUM_CELLS"]
 - !private ["Ps9AnyObject", "NSLog"]
@@ -54,7 +54,8 @@ depends-member:
 - !private ["Ps9AnyObject", "cellsUsedOnLoad"]
 - !private ["Ps9AnyObject", "checkPuzzleForConflicts"]
 - !private ["Ps9AnyObject", "clearAllConflictingCells"]
-- !private ["Ps9AnyObject", "clearAllPencils"]
+- !private ["Ps9AnyObject", "clearAllPencilsInCell"]
+- !private ["Ps9AnyObject", "clearAllPencilsInPuzzle"]
 - !private ["Ps9AnyObject", "clearPencil"]
 - !private ["Ps9AnyObject", "delegate"]
 - ["Ps9AnyObject", "deleteSelected"]
@@ -569,7 +570,8 @@ depends-member:
 - !private ["C12SudokuLayout12SudokuPuzzle", "cellsUsedOnLoad"]
 - !private ["C12SudokuLayout12SudokuPuzzle", "checkPuzzleForConflicts"]
 - !private ["C12SudokuLayout12SudokuPuzzle", "clearAllConflictingCells"]
-- !private ["C12SudokuLayout12SudokuPuzzle", "clearAllPencils"]
+- !private ["C12SudokuLayout12SudokuPuzzle", "clearAllPencilsInCell"]
+- !private ["C12SudokuLayout12SudokuPuzzle", "clearAllPencilsInPuzzle"]
 - !private ["C12SudokuLayout12SudokuPuzzle", "clearPencil"]
 - ["C12SudokuLayout12SudokuPuzzle", "deinit"]
 - !private ["C12SudokuLayout12SudokuPuzzle", "init"]

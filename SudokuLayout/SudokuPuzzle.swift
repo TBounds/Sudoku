@@ -204,13 +204,27 @@ class SudokuPuzzle {
     }
     
     // Clear all penciled in values.
-    func clearAllPencils(row: Int, column: Int) {
+    func clearAllPencilsInCell(row: Int, column: Int) {
         
         for i in 0 ..< 10 {
             puzzle[row][column].pencils[i] = 0
         }
         
     }
+    
+    func clearAllPencilsInPuzzle() {
+        
+        for r in 0 ..< 9 {
+            for c in 0 ..< 9 {
+                if !puzzle[r][c].isFixed {
+                    if anyPencilSetAtCell(row: r, column: c) {
+                        clearAllPencilsInCell(row: r, column: c)
+                    }
+                }
+            }
+        }
+    }
+    
     
     func clearAllConflictingCells() {
         

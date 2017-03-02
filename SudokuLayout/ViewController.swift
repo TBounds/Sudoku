@@ -119,7 +119,7 @@ class ViewController: UIViewController {
                             title: "Okay",
                             style: .default,
                             handler: { (UIAlertAction) -> Void in
-                                puzzle!.clearAllPencils(row: row, column: col)
+                                puzzle!.clearAllPencilsInCell(row: row, column: col)
                                 self.puzzleView.setNeedsDisplay() }))
             
             self.present(alertController, animated: true, completion: nil)
@@ -208,6 +208,12 @@ class ViewController: UIViewController {
             style: .default,
             handler: { (UIAlertAction) -> Void in
                 puzzle?.clearAllConflictingCells()
+                self.puzzleView.setNeedsDisplay()}))
+        alertController.addAction(UIAlertAction(
+            title: "Clear All Pencils",
+            style: .default,
+            handler: { (UIAlertAction) -> Void in
+                puzzle?.clearAllPencilsInPuzzle()
                 self.puzzleView.setNeedsDisplay()}))
         
             
