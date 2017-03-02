@@ -106,7 +106,7 @@ class ViewController: UIViewController {
         
         if pencilEnabled && puzzle!.anyPencilSetAtCell(row: row, column: col){
             
-            // Detete all pencils
+            // Delete all pencils
             let alertController = UIAlertController(
                             title: "Deleting all penciled in values.",
                             message: "Are you sure?",
@@ -207,8 +207,25 @@ class ViewController: UIViewController {
             title: "Clear All Conflicting Cells",
             style: .default,
             handler: { (UIAlertAction) -> Void in
-                puzzle?.clearAllConflictingCells()
-                self.puzzleView.setNeedsDisplay()}))
+                
+                let confirmationController = UIAlertController(
+                    title: "Clearing all conflicting cells.",
+                    message: "Are you sure?",
+                    preferredStyle: .alert)
+                confirmationController.addAction(UIKit.UIAlertAction(
+                    title: "Cancel",
+                    style: .cancel,
+                    handler: nil))
+                confirmationController.addAction(UIKit.UIAlertAction(
+                    title: "Okay",
+                    style: .default,
+                    handler: { (UIAlertAction) -> Void in
+                        puzzle?.clearAllConflictingCells()
+                        self.puzzleView.setNeedsDisplay() }))
+                
+                self.present(confirmationController, animated: true, completion: nil)
+
+        }))
         alertController.addAction(UIAlertAction(
             title: "Clear All Pencils",
             style: .default,

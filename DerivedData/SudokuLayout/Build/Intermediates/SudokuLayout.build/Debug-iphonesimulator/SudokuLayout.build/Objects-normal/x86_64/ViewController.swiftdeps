@@ -6,42 +6,43 @@ provides-nominal:
 provides-member:
 - ["C12SudokuLayout14ViewController", ""]
 provides-dynamic-lookup:
-- "remainingOpenCells"
-- "tileSelected"
 - "viewDidLoad"
-- "puzzleView"
-- "pencilSelected"
-- "pencilEnabled"
-- "MAX_NUM_CELLS"
-- "didReceiveMemoryWarning"
+- "tileSelected"
 - "deleteSelected"
 - "mainMenu"
+- "pencilSelected"
+- "remainingOpenCells"
+- "MAX_NUM_CELLS"
+- "pencilEnabled"
+- "didReceiveMemoryWarning"
+- "puzzleView"
 depends-top-level:
-- "ViewController"
 - "AssignmentPrecedence"
-- !private "!"
+- !private "UIKit"
 - !private "AppDelegate"
-- !private "SudokuPuzzle"
-- !private "StringLiteralType"
-- "Int"
-- !private "UIAlertAction"
-- !private "UIApplication"
-- "BooleanLiteralType"
 - "AnyObject"
-- !private "+="
-- "Bool"
-- !private "NSLog"
-- "PuzzleView"
-- "UIViewController"
-- !private "!="
-- !private "Void"
-- !private "UIAlertController"
-- "CastingPrecedence"
-- !private "-="
-- "UIButton"
-- !private "-"
-- !private "=="
 - !private "&&"
+- !private "StringLiteralType"
+- !private "!="
+- "Bool"
+- !private "UIAlertController"
+- !private "-"
+- !private "Void"
+- "BooleanLiteralType"
+- "Int"
+- !private "UIApplication"
+- "ViewController"
+- !private "!"
+- !private "SudokuPuzzle"
+- !private "NSLog"
+- !private "UIAlertAction"
+- "UIViewController"
+- "PuzzleView"
+- !private "+="
+- !private "-="
+- "CastingPrecedence"
+- "UIButton"
+- !private "=="
 depends-member:
 - ["Ps9AnyObject", "MAX_NUM_CELLS"]
 - !private ["Ps9AnyObject", "NSLog"]
@@ -49,6 +50,7 @@ depends-member:
 - !private ["Ps9AnyObject", "UIAlertAction"]
 - !private ["Ps9AnyObject", "UIAlertController"]
 - !private ["Ps9AnyObject", "UIApplication"]
+- !private ["Ps9AnyObject", "UIKit"]
 - !private ["Ps9AnyObject", "addAction"]
 - !private ["Ps9AnyObject", "anyPencilSetAtCell"]
 - !private ["Ps9AnyObject", "cellsUsedOnLoad"]
@@ -130,6 +132,7 @@ depends-member:
 - !private ["Ps7CVarArg", "UIAlertAction"]
 - !private ["Ps7CVarArg", "UIAlertController"]
 - !private ["Ps7CVarArg", "UIApplication"]
+- !private ["Ps7CVarArg", "UIKit"]
 - !private ["Ps7CVarArg", "_DisabledRangeIndex"]
 - !private ["Ps7CVarArg", "_Element"]
 - !private ["Ps7CVarArg", "addAction"]
@@ -176,6 +179,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "UIAlertAction"]
 - !private ["Ps28CustomDebugStringConvertible", "UIAlertController"]
 - !private ["Ps28CustomDebugStringConvertible", "UIApplication"]
+- !private ["Ps28CustomDebugStringConvertible", "UIKit"]
 - !private ["Ps28CustomDebugStringConvertible", "_Element"]
 - !private ["Ps28CustomDebugStringConvertible", "addAction"]
 - !private ["Ps28CustomDebugStringConvertible", "delegate"]
@@ -226,6 +230,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "UIAlertAction"]
 - !private ["Ps23CustomStringConvertible", "UIAlertController"]
 - !private ["Ps23CustomStringConvertible", "UIApplication"]
+- !private ["Ps23CustomStringConvertible", "UIKit"]
 - !private ["Ps23CustomStringConvertible", "_DisabledRangeIndex"]
 - !private ["Ps23CustomStringConvertible", "_Element"]
 - !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
@@ -270,6 +275,7 @@ depends-member:
 - !private ["Ps9Equatable", "UIAlertAction"]
 - !private ["Ps9Equatable", "UIAlertController"]
 - !private ["Ps9Equatable", "UIApplication"]
+- !private ["Ps9Equatable", "UIKit"]
 - !private ["Ps9Equatable", "_DisabledRangeIndex"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
 - !private ["Ps9Equatable", "actionSheet"]
@@ -320,6 +326,7 @@ depends-member:
 - !private ["Ps8Hashable", "UIAlertAction"]
 - !private ["Ps8Hashable", "UIAlertController"]
 - !private ["Ps8Hashable", "UIApplication"]
+- !private ["Ps8Hashable", "UIKit"]
 - !private ["Ps8Hashable", "_DisabledRangeIndex"]
 - !private ["Ps8Hashable", "_getBuiltinLogicValue"]
 - !private ["Ps8Hashable", "actionSheet"]
@@ -401,6 +408,7 @@ depends-member:
 - !private ["PSo8NSCoding", "UIAlertAction"]
 - !private ["PSo8NSCoding", "UIAlertController"]
 - !private ["PSo8NSCoding", "UIApplication"]
+- !private ["PSo8NSCoding", "UIKit"]
 - !private ["PSo8NSCoding", "addAction"]
 - ["PSo8NSCoding", "deleteSelected"]
 - ["PSo8NSCoding", "didReceiveMemoryWarning"]
@@ -426,6 +434,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "UIAlertAction"]
 - !private ["PSo26NSExtensionRequestHandling", "UIAlertController"]
 - !private ["PSo26NSExtensionRequestHandling", "UIApplication"]
+- !private ["PSo26NSExtensionRequestHandling", "UIKit"]
 - !private ["PSo26NSExtensionRequestHandling", "addAction"]
 - ["PSo26NSExtensionRequestHandling", "deleteSelected"]
 - ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
@@ -452,6 +461,7 @@ depends-member:
 - !private ["CSo8NSObject", "UIAlertController"]
 - !private ["CSo8NSObject", "UIApplication"]
 - ["CSo8NSObject", "UIButton"]
+- !private ["CSo8NSObject", "UIKit"]
 - !private ["CSo8NSObject", "Void"]
 - !private ["CSo8NSObject", "addAction"]
 - !private ["CSo8NSObject", "delegate"]
@@ -479,6 +489,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "UIAlertAction"]
 - !private ["PSo16NSObjectProtocol", "UIAlertController"]
 - !private ["PSo16NSObjectProtocol", "UIApplication"]
+- !private ["PSo16NSObjectProtocol", "UIKit"]
 - !private ["PSo16NSObjectProtocol", "addAction"]
 - !private ["PSo16NSObjectProtocol", "delegate"]
 - ["PSo16NSObjectProtocol", "deleteSelected"]
@@ -609,6 +620,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "UIAlertAction"]
 - !private ["PSo21UIAppearanceContainer", "UIAlertController"]
 - !private ["PSo21UIAppearanceContainer", "UIApplication"]
+- !private ["PSo21UIAppearanceContainer", "UIKit"]
 - !private ["PSo21UIAppearanceContainer", "addAction"]
 - ["PSo21UIAppearanceContainer", "deleteSelected"]
 - ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
@@ -640,6 +652,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "UIAlertAction"]
 - !private ["PSo18UIContentContainer", "UIAlertController"]
 - !private ["PSo18UIContentContainer", "UIApplication"]
+- !private ["PSo18UIContentContainer", "UIKit"]
 - !private ["PSo18UIContentContainer", "addAction"]
 - ["PSo18UIContentContainer", "deleteSelected"]
 - ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
@@ -671,6 +684,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "UIAlertAction"]
 - !private ["PSo18UIFocusEnvironment", "UIAlertController"]
 - !private ["PSo18UIFocusEnvironment", "UIApplication"]
+- !private ["PSo18UIFocusEnvironment", "UIKit"]
 - !private ["PSo18UIFocusEnvironment", "addAction"]
 - ["PSo18UIFocusEnvironment", "deleteSelected"]
 - ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
@@ -706,6 +720,7 @@ depends-member:
 - !private ["CSo11UIResponder", "UIAlertController"]
 - !private ["CSo11UIResponder", "UIApplication"]
 - ["CSo11UIResponder", "UIButton"]
+- !private ["CSo11UIResponder", "UIKit"]
 - !private ["CSo11UIResponder", "Void"]
 - !private ["CSo11UIResponder", "addAction"]
 - !private ["CSo11UIResponder", "delegate"]
@@ -733,6 +748,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "UIAlertAction"]
 - !private ["PSo30UIResponderStandardEditActions", "UIAlertController"]
 - !private ["PSo30UIResponderStandardEditActions", "UIApplication"]
+- !private ["PSo30UIResponderStandardEditActions", "UIKit"]
 - !private ["PSo30UIResponderStandardEditActions", "addAction"]
 - !private ["PSo30UIResponderStandardEditActions", "delegate"]
 - ["PSo30UIResponderStandardEditActions", "deleteSelected"]
@@ -760,6 +776,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "UIAlertAction"]
 - !private ["PSo16UIStateRestoring", "UIAlertController"]
 - !private ["PSo16UIStateRestoring", "UIApplication"]
+- !private ["PSo16UIStateRestoring", "UIKit"]
 - !private ["PSo16UIStateRestoring", "addAction"]
 - ["PSo16UIStateRestoring", "deleteSelected"]
 - ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
@@ -779,6 +796,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "UIAlertAction"]
 - !private ["PSo18UITraitEnvironment", "UIAlertController"]
 - !private ["PSo18UITraitEnvironment", "UIApplication"]
+- !private ["PSo18UITraitEnvironment", "UIKit"]
 - !private ["PSo18UITraitEnvironment", "addAction"]
 - ["PSo18UITraitEnvironment", "deleteSelected"]
 - ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
@@ -814,6 +832,7 @@ depends-member:
 - !private ["CSo16UIViewController", "UIAlertController"]
 - !private ["CSo16UIViewController", "UIApplication"]
 - ["CSo16UIViewController", "UIButton"]
+- !private ["CSo16UIViewController", "UIKit"]
 - !private ["CSo16UIViewController", "Void"]
 - !private ["CSo16UIViewController", "addAction"]
 - ["CSo16UIViewController", "deinit"]
@@ -847,6 +866,7 @@ depends-member:
 - !private ["C12SudokuLayout14ViewController", "UIAlertController"]
 - !private ["C12SudokuLayout14ViewController", "UIApplication"]
 - ["C12SudokuLayout14ViewController", "UIButton"]
+- !private ["C12SudokuLayout14ViewController", "UIKit"]
 - !private ["C12SudokuLayout14ViewController", "Void"]
 - ["C12SudokuLayout14ViewController", "deinit"]
 - ["C12SudokuLayout14ViewController", "deleteSelected"]
@@ -892,6 +912,7 @@ depends-member:
 - !private ["Ps9_Hashable", "UIAlertAction"]
 - !private ["Ps9_Hashable", "UIAlertController"]
 - !private ["Ps9_Hashable", "UIApplication"]
+- !private ["Ps9_Hashable", "UIKit"]
 - !private ["Ps9_Hashable", "_DisabledRangeIndex"]
 - !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
 - !private ["Ps9_Hashable", "actionSheet"]

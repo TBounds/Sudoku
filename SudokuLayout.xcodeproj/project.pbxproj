@@ -16,6 +16,7 @@
 		F84925751E650A0D005F44D9 /* simple.plist in Resources */ = {isa = PBXBuildFile; fileRef = F84925741E650A0D005F44D9 /* simple.plist */; };
 		F8904AA51E5F6E96001A7F84 /* PuzzleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8904AA41E5F6E96001A7F84 /* PuzzleView.swift */; };
 		F8BE5CA91E68A8FB00592F57 /* hard.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8BE5CA81E68A8FB00592F57 /* hard.plist */; };
+		F8BE5CAB1E68D8AB00592F57 /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE5CAA1E68D8AB00592F57 /* ButtonsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F84925741E650A0D005F44D9 /* simple.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = simple.plist; path = ../../../../Network/Servers/fs.labs.encs/Volumes/raid1/users_a/t.bounds/Downloads/simple.plist; sourceTree = "<group>"; };
 		F8904AA41E5F6E96001A7F84 /* PuzzleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleView.swift; sourceTree = "<group>"; };
 		F8BE5CA81E68A8FB00592F57 /* hard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hard.plist; sourceTree = "<group>"; };
+		F8BE5CAA1E68D8AB00592F57 /* ButtonsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonsView.swift; path = Assets.xcassets/ButtonsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				F80A632B1E4A39A7006F1E84 /* ViewController.swift */,
 				F82BC4051E60E2F9005589AD /* SudokuPuzzle.swift */,
 				F8904AA41E5F6E96001A7F84 /* PuzzleView.swift */,
+				F8BE5CAA1E68D8AB00592F57 /* ButtonsView.swift */,
 				F80A632D1E4A39A7006F1E84 /* Main.storyboard */,
 				F80A63301E4A39A7006F1E84 /* Assets.xcassets */,
 				F80A63321E4A39A7006F1E84 /* LaunchScreen.storyboard */,
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F80A632C1E4A39A7006F1E84 /* ViewController.swift in Sources */,
+				F8BE5CAB1E68D8AB00592F57 /* ButtonsView.swift in Sources */,
 				F80A632A1E4A39A7006F1E84 /* AppDelegate.swift in Sources */,
 				F82BC4061E60E2F9005589AD /* SudokuPuzzle.swift in Sources */,
 				F8904AA51E5F6E96001A7F84 /* PuzzleView.swift in Sources */,

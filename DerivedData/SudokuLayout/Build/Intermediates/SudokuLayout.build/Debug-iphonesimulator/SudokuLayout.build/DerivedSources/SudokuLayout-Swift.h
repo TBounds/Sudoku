@@ -137,6 +137,19 @@ SWIFT_CLASS("_TtC12SudokuLayout11AppDelegate")
 @end
 
 @class NSCoder;
+
+SWIFT_CLASS("_TtC12SudokuLayout11ButtonsView")
+@interface ButtonsView : UIView
+@property (nonatomic, readonly, copy) NSArray<NSArray<NSNumber *> *> * _Nonnull buttonTagsPortrait;
+@property (nonatomic, readonly, copy) NSArray<NSArray<NSNumber *> *> * _Nonnull buttonTagsPortraitTall;
+@property (nonatomic, readonly, copy) NSArray<NSArray<NSNumber *> *> * _Nonnull buttonTagsLandscape;
+@property (nonatomic, readonly, copy) NSArray<NSArray<NSNumber *> *> * _Nonnull buttonTagsLandscapeTall;
+@property (nonatomic, readonly, copy) NSArray<NSNumber *> * _Nonnull aspectRatiosForLayouts;
+- (void)layoutSubviews;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UIGestureRecognizer;
 
 SWIFT_CLASS("_TtC12SudokuLayout10PuzzleView")
@@ -148,12 +161,6 @@ SWIFT_CLASS("_TtC12SudokuLayout10PuzzleView")
 - (void)addMyTapGestureRecognizer;
 - (void)handleTap:(UIGestureRecognizer * _Nonnull)sender;
 - (void)drawRect:(CGRect)rect;
-@property (nonatomic, readonly, copy) NSArray<NSArray<NSNumber *> *> * _Nonnull buttonTagsPortrait;
-@property (nonatomic, readonly, copy) NSArray<NSArray<NSNumber *> *> * _Nonnull buttonTagsPortraitTall;
-@property (nonatomic, readonly, copy) NSArray<NSArray<NSNumber *> *> * _Nonnull buttonTagsLandscape;
-@property (nonatomic, readonly, copy) NSArray<NSArray<NSNumber *> *> * _Nonnull buttonTagsLandscapeTall;
-@property (nonatomic, readonly, copy) NSArray<NSNumber *> * _Nonnull aspectRatiosForLayouts;
-- (void)layoutSubviews;
 @end
 
 @class UIButton;

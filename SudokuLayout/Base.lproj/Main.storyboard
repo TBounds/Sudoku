@@ -32,7 +32,7 @@
                                             <constraint firstAttribute="width" secondItem="mSS-gh-XK4" secondAttribute="height" multiplier="1:1" id="rEE-iH-IkL"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TSy-Lh-nSn" userLabel="ButtonView" customClass="PuzzleView" customModule="SudokuLayout" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TSy-Lh-nSn" userLabel="ButtonView" customClass="ButtonsView" customModule="SudokuLayout" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="414" width="414" height="302"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDV-Cz-aVF">
