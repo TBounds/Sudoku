@@ -10,8 +10,9 @@ import UIKit
 
 class PuzzleView: UIView {
     
-    
     var selected: (row: Int, column: Int) = (row: -1, column: -1)
+    var showConflictingCells: Bool = false
+    var conflictingCellsCount: Int = 0
     
     required override init(frame: CGRect) {
         super.init(frame: frame)
@@ -65,8 +66,7 @@ class PuzzleView: UIView {
                     
                     NSLog("PuzzleView. row = \(selected.row), column = \(selected.column)")
                     
-                    setNeedsDisplay()   // request redraw
-                    
+                    setNeedsDisplay()   // request redraw 
                     
                 }
             }
@@ -87,6 +87,7 @@ class PuzzleView: UIView {
         
         let fixedAttributes = [NSFontAttributeName : boldFont!, NSForegroundColorAttributeName: UIColor.black]
         let nonFixedAttributes = [NSFontAttributeName : boldFont!, NSForegroundColorAttributeName: UIColor.darkGray]
+        let conflictingNonFixedAttributes = [NSFontAttributeName : boldFont!, NSForegroundColorAttributeName: UIColor.red]
         let pencilAttributes = [NSFontAttributeName : tinyFont!, NSForegroundColorAttributeName: UIColor.darkGray]
 
         
@@ -146,7 +147,7 @@ class PuzzleView: UIView {
             }
            
             
-            // Draw cells of sudoku puzzle.
+            // Draw values of cells (non-penciled values)
             for row in 0 ..< 9 {
                 for col in 0 ..< 9 {
                     
@@ -163,7 +164,13 @@ class PuzzleView: UIView {
                         }
                         // Draw non-fixed numbers in cell.
                         else if !(puzzle!.anyPencilSetAtCell(row: row, column: col)) {
-                            text.draw(in: textRect, withAttributes: nonFixedAttributes)
+                            if puzzle!.puzzle[row][col].isConflicting && showConflictingCells {
+                                text.draw(in: textRect, withAttributes: conflictingNonFixedAttributes)
+                            }
+                            else{
+                                text.draw(in: textRect, withAttributes: nonFixedAttributes)
+                            }
+                            
                         }
                         
                     }

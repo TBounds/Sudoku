@@ -6,33 +6,37 @@ provides-nominal:
 provides-member:
 - ["C12SudokuLayout14ViewController", ""]
 provides-dynamic-lookup:
+- "puzzleView"
+- "didReceiveMemoryWarning"
 - "tileSelected"
 - "deleteSelected"
-- "didReceiveMemoryWarning"
 - "pencilEnabled"
 - "pencilSelected"
-- "mainMenu"
 - "viewDidLoad"
-- "puzzleView"
+- "mainMenu"
 depends-top-level:
-- !private "StringLiteralType"
-- !private "UIAlertController"
-- "Bool"
-- "BooleanLiteralType"
-- !private "SudokuPuzzle"
+- !private "UIApplication"
+- !private "Void"
+- !private "NSLog"
+- !private "-="
+- "ViewController"
 - "UIButton"
+- !private "StringLiteralType"
+- "PuzzleView"
+- !private "UIAlertAction"
+- !private "!="
+- !private "SudokuPuzzle"
+- !private "AppDelegate"
+- "BooleanLiteralType"
 - "AnyObject"
 - !private "&&"
-- "UIViewController"
-- !private "UIApplication"
-- !private "NSLog"
 - !private "!"
-- "PuzzleView"
-- "ViewController"
-- !private "AppDelegate"
-- !private "Void"
+- !private "UIAlertController"
+- "Bool"
+- "UIViewController"
 - "CastingPrecedence"
-- !private "UIAlertAction"
+- !private "+="
+- !private "=="
 - "AssignmentPrecedence"
 depends-member:
 - !private ["Ps9AnyObject", "NSLog"]
@@ -42,8 +46,10 @@ depends-member:
 - !private ["Ps9AnyObject", "UIApplication"]
 - !private ["Ps9AnyObject", "addAction"]
 - !private ["Ps9AnyObject", "anyPencilSetAtCell"]
+- !private ["Ps9AnyObject", "clearAllConflictingCells"]
 - !private ["Ps9AnyObject", "clearAllPencils"]
 - !private ["Ps9AnyObject", "clearPencil"]
+- !private ["Ps9AnyObject", "conflictingCellsCount"]
 - !private ["Ps9AnyObject", "delegate"]
 - ["Ps9AnyObject", "deleteSelected"]
 - ["Ps9AnyObject", "didReceiveMemoryWarning"]
@@ -62,6 +68,7 @@ depends-member:
 - !private ["Ps9AnyObject", "setNumber"]
 - !private ["Ps9AnyObject", "setPencil"]
 - !private ["Ps9AnyObject", "shared"]
+- !private ["Ps9AnyObject", "showConflictingCells"]
 - !private ["Ps9AnyObject", "sudoku"]
 - !private ["Ps9AnyObject", "tag"]
 - ["Ps9AnyObject", "tileSelected"]
@@ -99,9 +106,11 @@ depends-member:
 - !private ["Ps17BitwiseOperations", "_DisabledRangeIndex"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - ["Sb", "deinit"]
+- !private ["PSo15CALayerDelegate", "conflictingCellsCount"]
 - !private ["PSo15CALayerDelegate", "isSelected"]
 - !private ["PSo15CALayerDelegate", "selected"]
 - !private ["PSo15CALayerDelegate", "setNeedsDisplay"]
+- !private ["PSo15CALayerDelegate", "showConflictingCells"]
 - !private ["PSo15CALayerDelegate", "tag"]
 - !private ["Ps7CVarArg", "Index"]
 - !private ["Ps7CVarArg", "IndexDistance"]
@@ -116,6 +125,7 @@ depends-member:
 - !private ["Ps7CVarArg", "_DisabledRangeIndex"]
 - !private ["Ps7CVarArg", "_Element"]
 - !private ["Ps7CVarArg", "addAction"]
+- !private ["Ps7CVarArg", "conflictingCellsCount"]
 - !private ["Ps7CVarArg", "delegate"]
 - ["Ps7CVarArg", "deleteSelected"]
 - ["Ps7CVarArg", "didReceiveMemoryWarning"]
@@ -129,12 +139,16 @@ depends-member:
 - !private ["Ps7CVarArg", "selected"]
 - !private ["Ps7CVarArg", "setNeedsDisplay"]
 - !private ["Ps7CVarArg", "shared"]
+- !private ["Ps7CVarArg", "showConflictingCells"]
 - !private ["Ps7CVarArg", "subscript"]
 - !private ["Ps7CVarArg", "sudoku"]
 - !private ["Ps7CVarArg", "tag"]
 - ["Ps7CVarArg", "tileSelected"]
 - ["Ps7CVarArg", "viewDidLoad"]
 - ["Ps7CVarArg", ""]
+- ["OC12SudokuLayout12SudokuPuzzle16CellConflictType", "deinit"]
+- !private ["OC12SudokuLayout12SudokuPuzzle16CellConflictType", "newConflict"]
+- !private ["OC12SudokuLayout12SudokuPuzzle16CellConflictType", "removedConflict"]
 - !private ["Vs9Character", "deinit"]
 - !private ["Ps10Collection", "Index"]
 - !private ["Ps10Collection", "IndexDistance"]
@@ -157,19 +171,23 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "UIApplication"]
 - !private ["Ps28CustomDebugStringConvertible", "_Element"]
 - !private ["Ps28CustomDebugStringConvertible", "addAction"]
+- !private ["Ps28CustomDebugStringConvertible", "conflictingCellsCount"]
 - !private ["Ps28CustomDebugStringConvertible", "delegate"]
 - ["Ps28CustomDebugStringConvertible", "deleteSelected"]
 - ["Ps28CustomDebugStringConvertible", "didReceiveMemoryWarning"]
 - !private ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "isSelected"]
 - ["Ps28CustomDebugStringConvertible", "mainMenu"]
+- !private ["Ps28CustomDebugStringConvertible", "newConflict"]
 - ["Ps28CustomDebugStringConvertible", "pencilEnabled"]
 - ["Ps28CustomDebugStringConvertible", "pencilSelected"]
 - !private ["Ps28CustomDebugStringConvertible", "present"]
 - ["Ps28CustomDebugStringConvertible", "puzzleView"]
+- !private ["Ps28CustomDebugStringConvertible", "removedConflict"]
 - !private ["Ps28CustomDebugStringConvertible", "selected"]
 - !private ["Ps28CustomDebugStringConvertible", "setNeedsDisplay"]
 - !private ["Ps28CustomDebugStringConvertible", "shared"]
+- !private ["Ps28CustomDebugStringConvertible", "showConflictingCells"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
 - !private ["Ps28CustomDebugStringConvertible", "sudoku"]
 - !private ["Ps28CustomDebugStringConvertible", "tag"]
@@ -190,6 +208,8 @@ depends-member:
 - !private ["Ps17CustomReflectable", "_Element"]
 - !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
 - !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "newConflict"]
+- !private ["Ps17CustomReflectable", "removedConflict"]
 - !private ["Ps17CustomReflectable", "subscript"]
 - !private ["Ps23CustomStringConvertible", "Index"]
 - !private ["Ps23CustomStringConvertible", "IndexDistance"]
@@ -205,6 +225,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "_Element"]
 - !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps23CustomStringConvertible", "addAction"]
+- !private ["Ps23CustomStringConvertible", "conflictingCellsCount"]
 - !private ["Ps23CustomStringConvertible", "delegate"]
 - ["Ps23CustomStringConvertible", "deleteSelected"]
 - ["Ps23CustomStringConvertible", "didReceiveMemoryWarning"]
@@ -218,6 +239,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "selected"]
 - !private ["Ps23CustomStringConvertible", "setNeedsDisplay"]
 - !private ["Ps23CustomStringConvertible", "shared"]
+- !private ["Ps23CustomStringConvertible", "showConflictingCells"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
 - !private ["Ps23CustomStringConvertible", "sudoku"]
 - !private ["Ps23CustomStringConvertible", "tag"]
@@ -248,6 +270,7 @@ depends-member:
 - !private ["Ps9Equatable", "addAction"]
 - !private ["Ps9Equatable", "alert"]
 - !private ["Ps9Equatable", "cancel"]
+- !private ["Ps9Equatable", "conflictingCellsCount"]
 - !private ["Ps9Equatable", "default"]
 - !private ["Ps9Equatable", "delegate"]
 - ["Ps9Equatable", "deleteSelected"]
@@ -255,13 +278,16 @@ depends-member:
 - !private ["Ps9Equatable", "init"]
 - !private ["Ps9Equatable", "isSelected"]
 - ["Ps9Equatable", "mainMenu"]
+- !private ["Ps9Equatable", "newConflict"]
 - ["Ps9Equatable", "pencilEnabled"]
 - ["Ps9Equatable", "pencilSelected"]
 - !private ["Ps9Equatable", "present"]
 - ["Ps9Equatable", "puzzleView"]
+- !private ["Ps9Equatable", "removedConflict"]
 - !private ["Ps9Equatable", "selected"]
 - !private ["Ps9Equatable", "setNeedsDisplay"]
 - !private ["Ps9Equatable", "shared"]
+- !private ["Ps9Equatable", "showConflictingCells"]
 - !private ["Ps9Equatable", "sudoku"]
 - !private ["Ps9Equatable", "tag"]
 - ["Ps9Equatable", "tileSelected"]
@@ -277,6 +303,8 @@ depends-member:
 - !private ["Ps27ExpressibleByIntegerLiteral", "IntegerLiteralType"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "_DisabledRangeIndex"]
+- !private ["Ps23ExpressibleByNilLiteral", "newConflict"]
+- !private ["Ps23ExpressibleByNilLiteral", "removedConflict"]
 - !private ["Ps32ExpressibleByStringInterpolation", "init"]
 - !private ["Ps26ExpressibleByStringLiteral", "init"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
@@ -294,6 +322,7 @@ depends-member:
 - !private ["Ps8Hashable", "addAction"]
 - !private ["Ps8Hashable", "alert"]
 - !private ["Ps8Hashable", "cancel"]
+- !private ["Ps8Hashable", "conflictingCellsCount"]
 - !private ["Ps8Hashable", "default"]
 - !private ["Ps8Hashable", "delegate"]
 - ["Ps8Hashable", "deleteSelected"]
@@ -301,13 +330,16 @@ depends-member:
 - !private ["Ps8Hashable", "init"]
 - !private ["Ps8Hashable", "isSelected"]
 - ["Ps8Hashable", "mainMenu"]
+- !private ["Ps8Hashable", "newConflict"]
 - ["Ps8Hashable", "pencilEnabled"]
 - ["Ps8Hashable", "pencilSelected"]
 - !private ["Ps8Hashable", "present"]
 - ["Ps8Hashable", "puzzleView"]
+- !private ["Ps8Hashable", "removedConflict"]
 - !private ["Ps8Hashable", "selected"]
 - !private ["Ps8Hashable", "setNeedsDisplay"]
 - !private ["Ps8Hashable", "shared"]
+- !private ["Ps8Hashable", "showConflictingCells"]
 - !private ["Ps8Hashable", "sudoku"]
 - !private ["Ps8Hashable", "tag"]
 - ["Ps8Hashable", "tileSelected"]
@@ -367,6 +399,7 @@ depends-member:
 - !private ["PSo8NSCoding", "UIAlertController"]
 - !private ["PSo8NSCoding", "UIApplication"]
 - !private ["PSo8NSCoding", "addAction"]
+- !private ["PSo8NSCoding", "conflictingCellsCount"]
 - ["PSo8NSCoding", "deleteSelected"]
 - ["PSo8NSCoding", "didReceiveMemoryWarning"]
 - !private ["PSo8NSCoding", "init"]
@@ -378,6 +411,7 @@ depends-member:
 - ["PSo8NSCoding", "puzzleView"]
 - !private ["PSo8NSCoding", "selected"]
 - !private ["PSo8NSCoding", "setNeedsDisplay"]
+- !private ["PSo8NSCoding", "showConflictingCells"]
 - !private ["PSo8NSCoding", "tag"]
 - ["PSo8NSCoding", "tileSelected"]
 - ["PSo8NSCoding", "viewDidLoad"]
@@ -413,6 +447,7 @@ depends-member:
 - ["CSo8NSObject", "UIButton"]
 - !private ["CSo8NSObject", "Void"]
 - !private ["CSo8NSObject", "addAction"]
+- !private ["CSo8NSObject", "conflictingCellsCount"]
 - !private ["CSo8NSObject", "delegate"]
 - ["CSo8NSObject", "deleteSelected"]
 - ["CSo8NSObject", "didReceiveMemoryWarning"]
@@ -426,6 +461,7 @@ depends-member:
 - !private ["CSo8NSObject", "selected"]
 - !private ["CSo8NSObject", "setNeedsDisplay"]
 - !private ["CSo8NSObject", "shared"]
+- !private ["CSo8NSObject", "showConflictingCells"]
 - !private ["CSo8NSObject", "sudoku"]
 - !private ["CSo8NSObject", "tag"]
 - ["CSo8NSObject", "tileSelected"]
@@ -436,6 +472,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "UIAlertController"]
 - !private ["PSo16NSObjectProtocol", "UIApplication"]
 - !private ["PSo16NSObjectProtocol", "addAction"]
+- !private ["PSo16NSObjectProtocol", "conflictingCellsCount"]
 - !private ["PSo16NSObjectProtocol", "delegate"]
 - ["PSo16NSObjectProtocol", "deleteSelected"]
 - ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
@@ -449,6 +486,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "selected"]
 - !private ["PSo16NSObjectProtocol", "setNeedsDisplay"]
 - !private ["PSo16NSObjectProtocol", "shared"]
+- !private ["PSo16NSObjectProtocol", "showConflictingCells"]
 - !private ["PSo16NSObjectProtocol", "sudoku"]
 - !private ["PSo16NSObjectProtocol", "tag"]
 - ["PSo16NSObjectProtocol", "tileSelected"]
@@ -457,9 +495,13 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "init"]
 - !private ["CSo8NSString", "init"]
 - ["Sq", "deinit"]
+- !private ["Sq", "newConflict"]
+- !private ["Sq", "removedConflict"]
 - !private ["VC12SudokuLayout12SudokuPuzzle10PuzzleCell", "pencils"]
+- !private ["C12SudokuLayout10PuzzleView", "conflictingCellsCount"]
 - !private ["C12SudokuLayout10PuzzleView", "selected"]
 - !private ["C12SudokuLayout10PuzzleView", "setNeedsDisplay"]
+- !private ["C12SudokuLayout10PuzzleView", "showConflictingCells"]
 - !private ["Ps22RandomAccessCollection", "Index"]
 - !private ["Ps22RandomAccessCollection", "IndexDistance"]
 - !private ["Ps22RandomAccessCollection", "Indices"]
@@ -518,6 +560,7 @@ depends-member:
 - ["SS", "deinit"]
 - !private ["SS", "init"]
 - !private ["C12SudokuLayout12SudokuPuzzle", "anyPencilSetAtCell"]
+- !private ["C12SudokuLayout12SudokuPuzzle", "clearAllConflictingCells"]
 - !private ["C12SudokuLayout12SudokuPuzzle", "clearAllPencils"]
 - !private ["C12SudokuLayout12SudokuPuzzle", "clearPencil"]
 - ["C12SudokuLayout12SudokuPuzzle", "deinit"]
@@ -529,9 +572,11 @@ depends-member:
 - !private ["C12SudokuLayout12SudokuPuzzle", "setPencil"]
 - !private ["Ps16TextOutputStream", "init"]
 - !private ["Ps20TextOutputStreamable", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "conflictingCellsCount"]
 - !private ["PSo29UIAccessibilityIdentification", "isSelected"]
 - !private ["PSo29UIAccessibilityIdentification", "selected"]
 - !private ["PSo29UIAccessibilityIdentification", "setNeedsDisplay"]
+- !private ["PSo29UIAccessibilityIdentification", "showConflictingCells"]
 - !private ["PSo29UIAccessibilityIdentification", "tag"]
 - ["CSo13UIAlertAction", "deinit"]
 - !private ["CSo13UIAlertAction", "init"]
@@ -544,9 +589,11 @@ depends-member:
 - !private ["OSC22UIAlertControllerStyle", "actionSheet"]
 - !private ["OSC22UIAlertControllerStyle", "alert"]
 - ["OSC22UIAlertControllerStyle", "deinit"]
+- !private ["PSo12UIAppearance", "conflictingCellsCount"]
 - !private ["PSo12UIAppearance", "isSelected"]
 - !private ["PSo12UIAppearance", "selected"]
 - !private ["PSo12UIAppearance", "setNeedsDisplay"]
+- !private ["PSo12UIAppearance", "showConflictingCells"]
 - !private ["PSo12UIAppearance", "tag"]
 - !private ["PSo21UIAppearanceContainer", "NSLog"]
 - !private ["PSo21UIAppearanceContainer", "SudokuPuzzle"]
@@ -554,6 +601,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "UIAlertController"]
 - !private ["PSo21UIAppearanceContainer", "UIApplication"]
 - !private ["PSo21UIAppearanceContainer", "addAction"]
+- !private ["PSo21UIAppearanceContainer", "conflictingCellsCount"]
 - ["PSo21UIAppearanceContainer", "deleteSelected"]
 - ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
 - !private ["PSo21UIAppearanceContainer", "init"]
@@ -565,6 +613,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "puzzleView"]
 - !private ["PSo21UIAppearanceContainer", "selected"]
 - !private ["PSo21UIAppearanceContainer", "setNeedsDisplay"]
+- !private ["PSo21UIAppearanceContainer", "showConflictingCells"]
 - !private ["PSo21UIAppearanceContainer", "tag"]
 - ["PSo21UIAppearanceContainer", "tileSelected"]
 - ["PSo21UIAppearanceContainer", "viewDidLoad"]
@@ -595,13 +644,17 @@ depends-member:
 - ["PSo18UIContentContainer", ""]
 - !private ["CSo9UIControl", "isSelected"]
 - !private ["CSo9UIControl", "tag"]
+- !private ["PSo17UICoordinateSpace", "conflictingCellsCount"]
 - !private ["PSo17UICoordinateSpace", "isSelected"]
 - !private ["PSo17UICoordinateSpace", "selected"]
 - !private ["PSo17UICoordinateSpace", "setNeedsDisplay"]
+- !private ["PSo17UICoordinateSpace", "showConflictingCells"]
 - !private ["PSo17UICoordinateSpace", "tag"]
+- !private ["PSo13UIDynamicItem", "conflictingCellsCount"]
 - !private ["PSo13UIDynamicItem", "isSelected"]
 - !private ["PSo13UIDynamicItem", "selected"]
 - !private ["PSo13UIDynamicItem", "setNeedsDisplay"]
+- !private ["PSo13UIDynamicItem", "showConflictingCells"]
 - !private ["PSo13UIDynamicItem", "tag"]
 - !private ["PSo18UIFocusEnvironment", "NSLog"]
 - !private ["PSo18UIFocusEnvironment", "SudokuPuzzle"]
@@ -609,6 +662,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "UIAlertController"]
 - !private ["PSo18UIFocusEnvironment", "UIApplication"]
 - !private ["PSo18UIFocusEnvironment", "addAction"]
+- !private ["PSo18UIFocusEnvironment", "conflictingCellsCount"]
 - ["PSo18UIFocusEnvironment", "deleteSelected"]
 - ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
 - !private ["PSo18UIFocusEnvironment", "init"]
@@ -620,13 +674,16 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "puzzleView"]
 - !private ["PSo18UIFocusEnvironment", "selected"]
 - !private ["PSo18UIFocusEnvironment", "setNeedsDisplay"]
+- !private ["PSo18UIFocusEnvironment", "showConflictingCells"]
 - !private ["PSo18UIFocusEnvironment", "tag"]
 - ["PSo18UIFocusEnvironment", "tileSelected"]
 - ["PSo18UIFocusEnvironment", "viewDidLoad"]
 - ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "conflictingCellsCount"]
 - !private ["PSo11UIFocusItem", "isSelected"]
 - !private ["PSo11UIFocusItem", "selected"]
 - !private ["PSo11UIFocusItem", "setNeedsDisplay"]
+- !private ["PSo11UIFocusItem", "showConflictingCells"]
 - !private ["PSo11UIFocusItem", "tag"]
 - ["CSo11UIResponder", "AnyObject"]
 - !private ["CSo11UIResponder", "AppDelegate"]
@@ -640,6 +697,7 @@ depends-member:
 - ["CSo11UIResponder", "UIButton"]
 - !private ["CSo11UIResponder", "Void"]
 - !private ["CSo11UIResponder", "addAction"]
+- !private ["CSo11UIResponder", "conflictingCellsCount"]
 - !private ["CSo11UIResponder", "delegate"]
 - ["CSo11UIResponder", "deleteSelected"]
 - ["CSo11UIResponder", "didReceiveMemoryWarning"]
@@ -653,6 +711,7 @@ depends-member:
 - !private ["CSo11UIResponder", "selected"]
 - !private ["CSo11UIResponder", "setNeedsDisplay"]
 - !private ["CSo11UIResponder", "shared"]
+- !private ["CSo11UIResponder", "showConflictingCells"]
 - !private ["CSo11UIResponder", "sudoku"]
 - !private ["CSo11UIResponder", "tag"]
 - ["CSo11UIResponder", "tileSelected"]
@@ -663,6 +722,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "UIAlertController"]
 - !private ["PSo30UIResponderStandardEditActions", "UIApplication"]
 - !private ["PSo30UIResponderStandardEditActions", "addAction"]
+- !private ["PSo30UIResponderStandardEditActions", "conflictingCellsCount"]
 - !private ["PSo30UIResponderStandardEditActions", "delegate"]
 - ["PSo30UIResponderStandardEditActions", "deleteSelected"]
 - ["PSo30UIResponderStandardEditActions", "didReceiveMemoryWarning"]
@@ -676,6 +736,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "selected"]
 - !private ["PSo30UIResponderStandardEditActions", "setNeedsDisplay"]
 - !private ["PSo30UIResponderStandardEditActions", "shared"]
+- !private ["PSo30UIResponderStandardEditActions", "showConflictingCells"]
 - !private ["PSo30UIResponderStandardEditActions", "sudoku"]
 - !private ["PSo30UIResponderStandardEditActions", "tag"]
 - ["PSo30UIResponderStandardEditActions", "tileSelected"]
@@ -704,6 +765,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "UIAlertController"]
 - !private ["PSo18UITraitEnvironment", "UIApplication"]
 - !private ["PSo18UITraitEnvironment", "addAction"]
+- !private ["PSo18UITraitEnvironment", "conflictingCellsCount"]
 - ["PSo18UITraitEnvironment", "deleteSelected"]
 - ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
 - !private ["PSo18UITraitEnvironment", "init"]
@@ -715,13 +777,16 @@ depends-member:
 - ["PSo18UITraitEnvironment", "puzzleView"]
 - !private ["PSo18UITraitEnvironment", "selected"]
 - !private ["PSo18UITraitEnvironment", "setNeedsDisplay"]
+- !private ["PSo18UITraitEnvironment", "showConflictingCells"]
 - !private ["PSo18UITraitEnvironment", "tag"]
 - ["PSo18UITraitEnvironment", "tileSelected"]
 - ["PSo18UITraitEnvironment", "viewDidLoad"]
 - ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "conflictingCellsCount"]
 - !private ["CSo6UIView", "isSelected"]
 - !private ["CSo6UIView", "selected"]
 - !private ["CSo6UIView", "setNeedsDisplay"]
+- !private ["CSo6UIView", "showConflictingCells"]
 - !private ["CSo6UIView", "tag"]
 - ["CSo16UIViewController", "AnyObject"]
 - !private ["CSo16UIViewController", "AppDelegate"]
@@ -780,9 +845,11 @@ depends-member:
 - !private ["Ps14_ArrayProtocol", "SubSequence"]
 - !private ["Ps14_ArrayProtocol", "_Element"]
 - !private ["Ps14_ArrayProtocol", "subscript"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "conflictingCellsCount"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "isSelected"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "selected"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "setNeedsDisplay"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "showConflictingCells"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "tag"]
 - !private ["Ps24_DestructorSafeContainer", "Index"]
 - !private ["Ps24_DestructorSafeContainer", "IndexDistance"]
@@ -811,6 +878,7 @@ depends-member:
 - !private ["Ps9_Hashable", "addAction"]
 - !private ["Ps9_Hashable", "alert"]
 - !private ["Ps9_Hashable", "cancel"]
+- !private ["Ps9_Hashable", "conflictingCellsCount"]
 - !private ["Ps9_Hashable", "default"]
 - !private ["Ps9_Hashable", "delegate"]
 - ["Ps9_Hashable", "deleteSelected"]
@@ -818,13 +886,16 @@ depends-member:
 - !private ["Ps9_Hashable", "init"]
 - !private ["Ps9_Hashable", "isSelected"]
 - ["Ps9_Hashable", "mainMenu"]
+- !private ["Ps9_Hashable", "newConflict"]
 - ["Ps9_Hashable", "pencilEnabled"]
 - ["Ps9_Hashable", "pencilSelected"]
 - !private ["Ps9_Hashable", "present"]
 - ["Ps9_Hashable", "puzzleView"]
+- !private ["Ps9_Hashable", "removedConflict"]
 - !private ["Ps9_Hashable", "selected"]
 - !private ["Ps9_Hashable", "setNeedsDisplay"]
 - !private ["Ps9_Hashable", "shared"]
+- !private ["Ps9_Hashable", "showConflictingCells"]
 - !private ["Ps9_Hashable", "sudoku"]
 - !private ["Ps9_Hashable", "tag"]
 - ["Ps9_Hashable", "tileSelected"]
@@ -848,7 +919,11 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "_Element"]
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
 - !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "newConflict"]
+- !private ["Ps21_ObjectiveCBridgeable", "removedConflict"]
 - !private ["Ps21_ObjectiveCBridgeable", "subscript"]
+- !private ["Vs26_OptionalNilComparisonType", "newConflict"]
+- !private ["Vs26_OptionalNilComparisonType", "removedConflict"]
 - !private ["Ps14_SignedInteger", "IntegerLiteralType"]
 - !private ["Ps14_SignedInteger", "Stride"]
 - !private ["Ps14_SignedInteger", "_DisabledRangeIndex"]
@@ -866,6 +941,7 @@ depends-nominal:
 - "Sb"
 - !private "PSo15CALayerDelegate"
 - "Ps7CVarArg"
+- "OC12SudokuLayout12SudokuPuzzle16CellConflictType"
 - !private "Vs9Character"
 - !private "Ps10Collection"
 - !private "Ps10Comparable"
@@ -881,6 +957,7 @@ depends-nominal:
 - !private "Ps27ExpressibleByBooleanLiteral"
 - !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
 - !private "Ps27ExpressibleByIntegerLiteral"
+- !private "Ps23ExpressibleByNilLiteral"
 - !private "Ps32ExpressibleByStringInterpolation"
 - !private "Ps26ExpressibleByStringLiteral"
 - !private "Ps33ExpressibleByUnicodeScalarLiteral"
@@ -973,6 +1050,7 @@ depends-nominal:
 - !private "Ps8_Integer"
 - !private "Ps18_IntegerArithmetic"
 - !private "Ps21_ObjectiveCBridgeable"
+- !private "Vs26_OptionalNilComparisonType"
 - !private "Ps14_SignedInteger"
 - !private "Ps11_Strideable"
 depends-dynamic-lookup:

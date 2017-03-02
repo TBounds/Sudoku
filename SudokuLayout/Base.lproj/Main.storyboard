@@ -50,7 +50,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.66043762660000005" green="0.72239780040000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                                <state key="normal" title="X"/>
+                                                <state key="normal" title="✖︎"/>
                                                 <connections>
                                                     <action selector="deleteSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IWS-YJ-ZA4"/>
                                                 </connections>
@@ -60,7 +60,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.66043762660000005" green="0.72239780040000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                                <state key="normal" title="M"/>
+                                                <state key="normal" title="⌘"/>
                                                 <connections>
                                                     <action selector="mainMenuWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e9e-Dq-5je"/>
                                                 </connections>
@@ -150,7 +150,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.66043762660000005" green="0.72239780040000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                                <state key="normal" title="P"/>
+                                                <state key="normal" title="✎"/>
                                                 <connections>
                                                     <action selector="pencilSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MOR-EH-ldJ"/>
                                                 </connections>

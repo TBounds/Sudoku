@@ -141,6 +141,8 @@ SWIFT_CLASS("_TtC12SudokuLayout11AppDelegate")
 
 SWIFT_CLASS("_TtC12SudokuLayout10PuzzleView")
 @interface PuzzleView : UIView
+@property (nonatomic) BOOL showConflictingCells;
+@property (nonatomic) NSInteger conflictingCellsCount;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (CGRect)boardRect;

@@ -10,10 +10,17 @@ import Foundation
 
 class SudokuPuzzle {
     
+    enum CellConflictType {
+        case noConflict, oldConflict, newConflict, removedConflict
+    }
+    
+    var conflictType : CellConflictType?
+    
     struct PuzzleCell {
         var pencils: [Int] = Array(repeating: 0, count: 10) // Array of zeros to hold pencil values for a vell.
         var number: Int = 0
         var isFixed: Bool = false
+        var isConflicting: Bool = false
         
     }
     
@@ -76,9 +83,51 @@ class SudokuPuzzle {
     
     // Set the number at the specified cell; assumes the cell does not contain
     // a fixed number.
-    func setNumber(number: Int, row: Int, column: Int) {
+    func setNumber(number: Int, row: Int, column: Int) -> CellConflictType {
+        
+        var conflict : CellConflictType
         
         puzzle[row][column].number = number
+        
+        
+        // This figures out the nature of the conflict when ENTERING in a number at a cell.
+        // newConflicts will cause a conflict coutner to increment while removedConflict will decrement.
+        // XXX I do not need oldConflict and noConflict but for now I am leaving it this way.
+        if number != 0 {
+            if isConflictingEntryAtRow(row: row, column: column, number: number){
+                if puzzle[row][column].isConflicting {
+                    conflict = CellConflictType.oldConflict
+                }
+                else {
+                    conflict = CellConflictType.newConflict
+                }
+                puzzle[row][column].isConflicting = true
+            }
+            else {
+                if puzzle[row][column].isConflicting{
+                    conflict = CellConflictType.removedConflict
+                }
+                else {
+                    conflict = CellConflictType.noConflict
+                }
+                
+                puzzle[row][column].isConflicting = false
+            }
+        }
+        // This figures out the nature of the conflict when DELETING a number at a cell.
+        else {
+            if puzzle[row][column].isConflicting {
+                conflict = CellConflictType.removedConflict
+                puzzle[row][column].isConflicting = false
+            }
+            else {
+                conflict = CellConflictType.noConflict
+            }
+        }
+        
+        
+        return conflict
+        
     }
     
     // Determines if cells contains fixed number.
@@ -178,6 +227,17 @@ class SudokuPuzzle {
             puzzle[row][column].pencils[i] = 0
         }
         
+    }
+    
+    func clearAllConflictingCells() {
+        
+        for r in 0 ..< 9 {
+            for c in 0 ..< 9 {
+                if puzzle[r][c].isConflicting {
+                    puzzle[r][c].number = 0
+                }
+            }
+        }
     }
 
 }
