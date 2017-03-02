@@ -10,11 +10,7 @@ import Foundation
 
 class SudokuPuzzle {
     
-    enum CellConflictType {
-        case noConflict, oldConflict, newConflict, removedConflict
-    }
-    
-    var conflictType : CellConflictType?
+    var cellsUsedOnLoad : Int = 0
     
     struct PuzzleCell {
         var pencils: [Int] = Array(repeating: 0, count: 10) // Array of zeros to hold pencil values for a vell.
@@ -50,7 +46,9 @@ class SudokuPuzzle {
     }
     
     // Load new game encoded with given string.
-    func loadPuzzle(puzzleString: String) {
+    func loadPuzzle(puzzleString: String) -> Int {
+        
+        var cellsUsed : Int = 0
         
         let puzzles = getPuzzles(name: puzzleString)                                    // Loads all puzzles from plist
         let randomPuzzleIndex = Int(arc4random_uniform(UInt32(puzzles.count)))          // Random index to choose which puzzle to use.
@@ -64,13 +62,15 @@ class SudokuPuzzle {
                 if puzzleElements[puzzleIndex] != "." {
                     puzzle[r][c].number = Int(puzzleElements[puzzleIndex])!
                     puzzle[r][c].isFixed = true
+                    cellsUsed += 1
                 }
                 
                 puzzleIndex += 1
             }
         }
+        cellsUsedOnLoad = cellsUsed
         
-        
+        return cellsUsed
         
     }
     
@@ -83,50 +83,10 @@ class SudokuPuzzle {
     
     // Set the number at the specified cell; assumes the cell does not contain
     // a fixed number.
-    func setNumber(number: Int, row: Int, column: Int) -> CellConflictType {
-        
-        var conflict : CellConflictType
+    func setNumber(number: Int, row: Int, column: Int) {
         
         puzzle[row][column].number = number
         
-        
-        // This figures out the nature of the conflict when ENTERING in a number at a cell.
-        // newConflicts will cause a conflict coutner to increment while removedConflict will decrement.
-        // XXX I do not need oldConflict and noConflict but for now I am leaving it this way.
-        if number != 0 {
-            if isConflictingEntryAtRow(row: row, column: column, number: number){
-                if puzzle[row][column].isConflicting {
-                    conflict = CellConflictType.oldConflict
-                }
-                else {
-                    conflict = CellConflictType.newConflict
-                }
-                puzzle[row][column].isConflicting = true
-            }
-            else {
-                if puzzle[row][column].isConflicting{
-                    conflict = CellConflictType.removedConflict
-                }
-                else {
-                    conflict = CellConflictType.noConflict
-                }
-                
-                puzzle[row][column].isConflicting = false
-            }
-        }
-        // This figures out the nature of the conflict when DELETING a number at a cell.
-        else {
-            if puzzle[row][column].isConflicting {
-                conflict = CellConflictType.removedConflict
-                puzzle[row][column].isConflicting = false
-            }
-            else {
-                conflict = CellConflictType.noConflict
-            }
-        }
-        
-        
-        return conflict
         
     }
     
@@ -168,6 +128,29 @@ class SudokuPuzzle {
         
         // No conflicts
         return false
+    }
+    
+    // Checks each cell for a conflict.
+    func checkPuzzleForConflicts() -> Bool {
+        
+        var conflict : Bool = false
+        
+        for r in 0 ..< 9 {
+            for c in 0 ..< 9 {
+                if !puzzle[r][c].isFixed {
+                    if isConflictingEntryAtRow(row: r, column: c, number: puzzle[r][c].number) {
+                        puzzle[r][c].isConflicting = true
+                        conflict = true
+                    }
+                    else {
+                        puzzle[r][c].isConflicting = false
+                    }
+                }
+                
+            }
+        }
+        
+        return conflict
     }
     
     // Are there any penciled in values at the given cell? (assumes number == 0)

@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Load puzzle from sandbox. XXX TODO
         self.sudoku!.loadPuzzle(puzzleString: "simple") // Load new simple puzzle
         
+        
         return true
     }
 

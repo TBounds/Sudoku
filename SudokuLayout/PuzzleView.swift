@@ -12,7 +12,6 @@ class PuzzleView: UIView {
     
     var selected: (row: Int, column: Int) = (row: -1, column: -1)
     var showConflictingCells: Bool = false
-    var conflictingCellsCount: Int = 0
     
     required override init(frame: CGRect) {
         super.init(frame: frame)

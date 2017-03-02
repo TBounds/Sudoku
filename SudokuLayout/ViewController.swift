@@ -6,17 +6,30 @@
 //  Copyright © 2017 Tyler James Bounds. All rights reserved.
 //
 
+
+
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let MAX_NUM_CELLS = 81
 
-    var pencilEnabled : Bool = false  // controller property
+    var pencilEnabled : Bool = false
+    var remainingOpenCells: Int = 81
+    
     
     @IBOutlet weak var puzzleView : PuzzleView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let puzzle = appDelegate.sudoku
+        
+        // Set the remainOpenCells after the puzzle loads
+        remainingOpenCells -= (puzzle?.cellsUsedOnLoad)!
+        
+        NSLog("remainingCells = \(remainingOpenCells)")
         
     }
 
@@ -37,7 +50,8 @@ class ViewController: UIViewController {
             
             NSLog("\(tag)")
             
-            if(pencilEnabled) {
+            // Writing in pencils
+            if(pencilEnabled && puzzle?.puzzle[row][col].number == 0) {
                 
                 NSLog("cell = \(puzzleView.selected)")
                 
@@ -53,18 +67,28 @@ class ViewController: UIViewController {
                 
                 puzzleView.setNeedsDisplay()
             }
-            
-            if (!pencilEnabled) {
-                let conflict = puzzle?.setNumber(number: tag, row: row, column: col)
-                if  conflict == .newConflict {
-                    puzzleView.conflictingCellsCount += 1
-                }
-                else if conflict == .removedConflict {
-                    puzzleView.conflictingCellsCount -= 1
-                }
-                puzzleView.setNeedsDisplay()
+            // Writing in cell values
+            if (!pencilEnabled && !(puzzle?.anyPencilSetAtCell(row: row, column: col))! ) {
                 
-                NSLog("# of conflicting cells = \(puzzleView.conflictingCellsCount)")
+                if puzzle?.puzzle[row][col].number == 0 {
+                    self.remainingOpenCells -= 1
+                }
+                
+                if tag == puzzle?.puzzle[row][col].number {
+                    puzzle?.setNumber(number: 0, row: row, column: col)
+                }
+                else if puzzle?.puzzle[row][col].number == 0 {
+                    puzzle?.setNumber(number: tag, row: row, column: col)
+                }
+                
+                if !(puzzle?.checkPuzzleForConflicts())! && remainingOpenCells == 0 {
+                    NSLog("you win")
+                    // XXX TODO: Add popup with options
+                }
+
+                puzzleView.setNeedsDisplay()
+
+                NSLog("# of remaining cells = \(remainingOpenCells)")
             }
         }
         
@@ -104,14 +128,16 @@ class ViewController: UIViewController {
         // Deletes cell value
         else if !pencilEnabled && puzzleView.selected.row != -1 && puzzleView.selected.column != -1 {
             
-            let conflict = puzzle?.setNumber(number: 0, row: row, column: col)
-            
-            if conflict == .removedConflict {
-                puzzleView.conflictingCellsCount -= 1
+            if puzzle?.puzzle[row][col].number != 0 {
+                self.remainingOpenCells += 1
             }
+            
+            puzzle?.setNumber(number: 0, row: row, column: col)
+            puzzle?.checkPuzzleForConflicts()
+
             puzzleView.setNeedsDisplay()
             
-            NSLog("# of conflicting cells = \(puzzleView.conflictingCellsCount)")
+            NSLog("# of remaining cells = \(remainingOpenCells)")
         }
         
     }
@@ -126,6 +152,7 @@ class ViewController: UIViewController {
     @IBAction func mainMenu(sender: AnyObject) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let puzzle = appDelegate.sudoku
+        
         let alertController = UIAlertController(
             title: "Main Menu",
             message: nil,
@@ -140,8 +167,12 @@ class ViewController: UIViewController {
             handler: { (UIAlertAction) -> Void in
                 appDelegate.sudoku = SudokuPuzzle()
                 // let puzzleStr = randomPuzzle(appDelegate.simplePuzzles)
-                appDelegate.sudoku?.loadPuzzle(puzzleString: "simple")
-                // self.selectFirstAvailableCell()
+                let cellsUsed = (appDelegate.sudoku?.loadPuzzle(puzzleString: "simple"))
+                self.remainingOpenCells = self.MAX_NUM_CELLS - cellsUsed!
+                
+                NSLog("remainingCells = \(self.remainingOpenCells)") // DEBUG
+                
+                self.puzzleView.selected = (-1, -1)
                 self.puzzleView.setNeedsDisplay()}))
         alertController.addAction(UIAlertAction(
             title: "New Hard Game",
@@ -149,12 +180,16 @@ class ViewController: UIViewController {
             handler: { (UIAlertAction) -> Void in
                 appDelegate.sudoku = SudokuPuzzle()
                 // let puzzleStr = randomPuzzle(appDelegate.simplePuzzles)
-                appDelegate.sudoku?.loadPuzzle(puzzleString: "hard")
-                // self.selectFirstAvailableCell()
+                let cellsUsed = appDelegate.sudoku?.loadPuzzle(puzzleString: "hard")
+                self.remainingOpenCells = self.MAX_NUM_CELLS - cellsUsed!
+                
+                NSLog("remainingCells = \(self.remainingOpenCells)") // DEBUG
+                
+                self.puzzleView.selected = (-1, -1)
                 self.puzzleView.setNeedsDisplay()}))
         if !puzzleView.showConflictingCells {
             alertController.addAction(UIAlertAction(
-                title: "Show Conflicting Cells",
+                title: "Highlight Conflicting Cells",
                 style: .default,
                 handler: { (UIAlertAction) -> Void in
                     self.puzzleView.showConflictingCells = true
@@ -162,7 +197,7 @@ class ViewController: UIViewController {
         }
         else {
             alertController.addAction(UIAlertAction(
-                title: "Hide Conflicting Cells",
+                title: "Unhighlight Conflicting Cells",
                 style: .default,
                 handler: { (UIAlertAction) -> Void in
                     self.puzzleView.showConflictingCells = false

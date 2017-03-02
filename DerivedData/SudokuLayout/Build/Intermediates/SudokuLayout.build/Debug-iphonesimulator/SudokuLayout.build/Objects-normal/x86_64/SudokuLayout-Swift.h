@@ -142,7 +142,6 @@ SWIFT_CLASS("_TtC12SudokuLayout11AppDelegate")
 SWIFT_CLASS("_TtC12SudokuLayout10PuzzleView")
 @interface PuzzleView : UIView
 @property (nonatomic) BOOL showConflictingCells;
-@property (nonatomic) NSInteger conflictingCellsCount;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (CGRect)boardRect;
@@ -162,7 +161,9 @@ SWIFT_CLASS("_TtC12SudokuLayout10PuzzleView")
 
 SWIFT_CLASS("_TtC12SudokuLayout14ViewController")
 @interface ViewController : UIViewController
+@property (nonatomic, readonly) NSInteger MAX_NUM_CELLS;
 @property (nonatomic) BOOL pencilEnabled;
+@property (nonatomic) NSInteger remainingOpenCells;
 @property (nonatomic, weak) IBOutlet PuzzleView * _Null_unspecified puzzleView;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
