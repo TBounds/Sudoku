@@ -236,5 +236,16 @@ class SudokuPuzzle {
             }
         }
     }
+    
+    func clearNonFixedValues() {
+        
+        for r in 0 ..< 9 {
+            for c in 0 ..< 9 {
+                if !puzzle[r][c].isFixed && puzzle[r][c].number != 0 {
+                    puzzle[r][c].number = 0
+                }
+            }
+        }
+    }
 
 }

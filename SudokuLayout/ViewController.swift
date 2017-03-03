@@ -174,6 +174,7 @@ class ViewController: UIViewController {
                 
                 self.puzzleView.selected = (-1, -1)
                 self.puzzleView.setNeedsDisplay()}))
+        
         alertController.addAction(UIAlertAction(
             title: "New Hard Game",
             style: .default,
@@ -187,6 +188,7 @@ class ViewController: UIViewController {
                 
                 self.puzzleView.selected = (-1, -1)
                 self.puzzleView.setNeedsDisplay()}))
+        
         if !puzzleView.showConflictingCells {
             alertController.addAction(UIAlertAction(
                 title: "Highlight Conflicting Cells",
@@ -203,6 +205,7 @@ class ViewController: UIViewController {
                     self.puzzleView.showConflictingCells = false
                     self.puzzleView.setNeedsDisplay()}))
         }
+        
         alertController.addAction(UIAlertAction(
             title: "Clear All Conflicting Cells",
             style: .default,
@@ -226,11 +229,19 @@ class ViewController: UIViewController {
                 self.present(confirmationController, animated: true, completion: nil)
 
         }))
+        
         alertController.addAction(UIAlertAction(
             title: "Clear All Pencils",
             style: .default,
             handler: { (UIAlertAction) -> Void in
                 puzzle?.clearAllPencilsInPuzzle()
+                self.puzzleView.setNeedsDisplay()}))
+        
+        alertController.addAction(UIAlertAction(
+            title: "Clear All Cells",
+            style: .default,
+            handler: { (UIAlertAction) -> Void in
+                puzzle?.clearNonFixedValues()
                 self.puzzleView.setNeedsDisplay()}))
         
             

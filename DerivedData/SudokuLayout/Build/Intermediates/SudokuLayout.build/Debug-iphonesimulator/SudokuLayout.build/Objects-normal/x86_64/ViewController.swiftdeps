@@ -6,43 +6,43 @@ provides-nominal:
 provides-member:
 - ["C12SudokuLayout14ViewController", ""]
 provides-dynamic-lookup:
-- "viewDidLoad"
+- "remainingOpenCells"
 - "tileSelected"
-- "deleteSelected"
 - "mainMenu"
 - "pencilSelected"
-- "remainingOpenCells"
-- "MAX_NUM_CELLS"
-- "pencilEnabled"
-- "didReceiveMemoryWarning"
+- "deleteSelected"
+- "viewDidLoad"
 - "puzzleView"
+- "pencilEnabled"
+- "MAX_NUM_CELLS"
+- "didReceiveMemoryWarning"
 depends-top-level:
-- "AssignmentPrecedence"
-- !private "UIKit"
+- "ViewController"
 - !private "AppDelegate"
 - "AnyObject"
-- !private "&&"
-- !private "StringLiteralType"
-- !private "!="
-- "Bool"
-- !private "UIAlertController"
-- !private "-"
-- !private "Void"
-- "BooleanLiteralType"
+- "UIButton"
 - "Int"
 - !private "UIApplication"
-- "ViewController"
+- !private "UIAlertController"
+- "Bool"
+- !private "UIKit"
+- !private "Void"
+- !private "=="
 - !private "!"
+- "CastingPrecedence"
+- "AssignmentPrecedence"
 - !private "SudokuPuzzle"
 - !private "NSLog"
-- !private "UIAlertAction"
-- "UIViewController"
 - "PuzzleView"
 - !private "+="
+- !private "UIAlertAction"
+- !private "StringLiteralType"
+- "UIViewController"
+- !private "!="
+- "BooleanLiteralType"
+- !private "-"
 - !private "-="
-- "CastingPrecedence"
-- "UIButton"
-- !private "=="
+- !private "&&"
 depends-member:
 - ["Ps9AnyObject", "MAX_NUM_CELLS"]
 - !private ["Ps9AnyObject", "NSLog"]
@@ -58,6 +58,7 @@ depends-member:
 - !private ["Ps9AnyObject", "clearAllConflictingCells"]
 - !private ["Ps9AnyObject", "clearAllPencilsInCell"]
 - !private ["Ps9AnyObject", "clearAllPencilsInPuzzle"]
+- !private ["Ps9AnyObject", "clearNonFixedValues"]
 - !private ["Ps9AnyObject", "clearPencil"]
 - !private ["Ps9AnyObject", "delegate"]
 - ["Ps9AnyObject", "deleteSelected"]
@@ -583,6 +584,7 @@ depends-member:
 - !private ["C12SudokuLayout12SudokuPuzzle", "clearAllConflictingCells"]
 - !private ["C12SudokuLayout12SudokuPuzzle", "clearAllPencilsInCell"]
 - !private ["C12SudokuLayout12SudokuPuzzle", "clearAllPencilsInPuzzle"]
+- !private ["C12SudokuLayout12SudokuPuzzle", "clearNonFixedValues"]
 - !private ["C12SudokuLayout12SudokuPuzzle", "clearPencil"]
 - ["C12SudokuLayout12SudokuPuzzle", "deinit"]
 - !private ["C12SudokuLayout12SudokuPuzzle", "init"]
