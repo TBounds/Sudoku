@@ -103,7 +103,6 @@ class PuzzleView: UIView {
         
         if let context = UIGraphicsGetCurrentContext() {
             
-            
             // Sets grid line color.
             UIColor.black.setStroke()
             
@@ -119,7 +118,6 @@ class PuzzleView: UIView {
                     context.fill(CGRect(x: x, y: y, width: distBetweenLines - 0.5, height: distBetweenLines - 0.5))
                 }
             }
-            
             
             // Draw the grid rows.
             for r in 0 ..< 10 {
@@ -150,7 +148,7 @@ class PuzzleView: UIView {
             }
            
             
-            // Draw values of cells (non-penciled values)
+            // Draw values of cells
             for row in 0 ..< 9 {
                 for col in 0 ..< 9 {
                     
@@ -162,11 +160,12 @@ class PuzzleView: UIView {
                         let textRect = CGRect(x: x, y: y, width: textSize.width, height: textSize.height)
                         
                         // Draw fixed numbers in cell.
-                        if puzzle!.puzzle[row][col].isFixed{
+                        if puzzle!.puzzle[row][col].isFixed {
                             text.draw(in: textRect, withAttributes: fixedAttributes)
                         }
                         // Draw non-fixed numbers in cell.
-                        else if !(puzzle!.anyPencilSetAtCell(row: row, column: col)) {
+                        else /*if !(puzzle!.anyPencilSetAtCell(row: row, column: col))*/ {  // Commented this out so that user can overwrite pencil values with a guess/answer. 
+                                                                                            // Pencil values remain but are not visible.
                             if puzzle!.puzzle[row][col].isConflicting && showConflictingCells {
                                 text.draw(in: textRect, withAttributes: conflictingNonFixedAttributes)
                             }
@@ -179,7 +178,7 @@ class PuzzleView: UIView {
                     }
                     
                     // Draw penciled values.
-                    if (puzzle!.anyPencilSetAtCell(row: row, column: col)) {
+                    else if (puzzle!.anyPencilSetAtCell(row: row, column: col)) {
                         
                         var index = 1
                         

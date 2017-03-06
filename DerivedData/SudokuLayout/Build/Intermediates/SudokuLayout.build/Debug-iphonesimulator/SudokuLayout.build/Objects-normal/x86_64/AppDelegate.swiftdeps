@@ -6,24 +6,24 @@ provides-nominal:
 provides-member:
 - ["C12SudokuLayout11AppDelegate", ""]
 provides-dynamic-lookup:
-- "applicationDidBecomeActive"
-- "applicationWillEnterForeground"
 - "applicationDidEnterBackground"
-- "application"
+- "window"
+- "applicationWillEnterForeground"
 - "applicationWillTerminate"
 - "applicationWillResignActive"
-- "window"
+- "application"
+- "applicationDidBecomeActive"
 depends-top-level:
-- "Bool"
-- "UIApplicationLaunchOptionsKey"
-- !private "StringLiteralType"
-- !private "BooleanLiteralType"
-- "AppDelegate"
-- "UIResponder"
-- "UIWindow"
-- "UIApplication"
 - "SudokuPuzzle"
+- "UIResponder"
+- !private "StringLiteralType"
+- "AppDelegate"
 - "UIApplicationDelegate"
+- !private "BooleanLiteralType"
+- "UIApplication"
+- "UIApplicationLaunchOptionsKey"
+- "Bool"
+- "UIWindow"
 - "AssignmentPrecedence"
 depends-member:
 - !private ["Ps9AnyObject", "SudokuPuzzle"]

@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     var pencilEnabled : Bool = false
     var gameWon : Bool = false
- 
+    
     @IBOutlet weak var puzzleView : PuzzleView!
     
     override func viewDidLoad() {
@@ -22,12 +22,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func tileSelected(_ sender: UIButton) {   // This should called numberSelected or something else.
         
         if puzzleView.selected.row != -1 && puzzleView.selected.column != -1  && !self.gameWon {
@@ -38,8 +38,6 @@ class ViewController: UIViewController {
             let row = puzzleView.selected.row
             let col = puzzleView.selected.column
             
-            NSLog("\(tag)")
-            
             // Writing in pencils
             if(pencilEnabled && puzzle?.puzzle[row][col].number == 0) {
                 
@@ -49,12 +47,12 @@ class ViewController: UIViewController {
                 else {
                     puzzle?.setPencil(n: sender.tag, row: puzzleView.selected.row, column: puzzleView.selected.column)
                 }
-              
+                
                 puzzleView.setNeedsDisplay()
             }
             
             // Writing in cell values
-            if (!pencilEnabled && !(puzzle?.anyPencilSetAtCell(row: row, column: col))! ) {
+            if (!pencilEnabled /*&& !(puzzle?.anyPencilSetAtCell(row: row, column: col))! */) {
                 
                 if tag == puzzle?.puzzle[row][col].number {
                     puzzle?.setNumber(number: 0, row: row, column: col)
@@ -65,6 +63,7 @@ class ViewController: UIViewController {
                 
                 // Make sure there are no conflicts, no empty cells, and that the game had not already been won.
                 if !(puzzle?.checkPuzzleForConflicts())! && (puzzle?.checkIfPuzzleIsFilled())! && !self.gameWon {
+                // if !self.gameWon {
                     
                     self.gameWon = true
                     self.puzzleView.gameWon = true
@@ -105,7 +104,7 @@ class ViewController: UIViewController {
                             
                             self.present(confirmationController, animated: true, completion: nil)
                     }))
-                        
+                    
                     winController.addAction(UIAlertAction(
                         title: "New Easy game",
                         style: .default,
@@ -143,9 +142,9 @@ class ViewController: UIViewController {
                         handler: nil))
                     
                     self.present(winController, animated: true, completion: nil)
-
+                    
                 }
-
+                
                 puzzleView.setNeedsDisplay()
                 
             }
@@ -167,30 +166,30 @@ class ViewController: UIViewController {
             
             // Delete all pencils
             let alertController = UIAlertController(
-                            title: "Deleting all penciled in values.",
-                            message: "Are you sure?",
-                            preferredStyle: .alert)
-                        alertController.addAction(UIAlertAction(
-                            title: "Cancel",
-                            style: .cancel,
-                            handler: nil))
-                        alertController.addAction(UIAlertAction(
-                            title: "Okay",
-                            style: .default,
-                            handler: { (UIAlertAction) -> Void in
-                                puzzle!.clearAllPencilsInCell(row: row, column: col)
-                                self.puzzleView.setNeedsDisplay() }))
+                title: "Deleting all penciled in values.",
+                message: "Are you sure?",
+                preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(
+                title: "Cancel",
+                style: .cancel,
+                handler: nil))
+            alertController.addAction(UIAlertAction(
+                title: "Okay",
+                style: .default,
+                handler: { (UIAlertAction) -> Void in
+                    puzzle!.clearAllPencilsInCell(row: row, column: col)
+                    self.puzzleView.setNeedsDisplay() }))
             
             self.present(alertController, animated: true, completion: nil)
             
         }
-        // Deletes cell value
+            // Deletes cell value
         else if !pencilEnabled && puzzleView.selected.row != -1 && puzzleView.selected.column != -1 {
             
             
             puzzle?.setNumber(number: 0, row: row, column: col)
             puzzle?.checkPuzzleForConflicts() // Used to update conflicting cells highlighting
-
+            
             puzzleView.setNeedsDisplay()
             
         }
@@ -202,7 +201,7 @@ class ViewController: UIViewController {
         pencilEnabled = !pencilEnabled   // toggle
         sender.isSelected = pencilEnabled
     }
-
+    
     //------------------------------------------------------------------------//
     //------------------------------- Menu UI --------------------------------//
     //------------------------------------------------------------------------//
@@ -240,7 +239,7 @@ class ViewController: UIViewController {
                         appDelegate.sudoku = SudokuPuzzle()
                         // let puzzleStr = randomPuzzle(appDelegate.simplePuzzles)
                         appDelegate.sudoku?.loadPuzzle(puzzleString: "simple")
-
+                        
                         self.puzzleView.selected = (-1, -1)
                         self.gameWon = false
                         self.puzzleView.gameWon = false
@@ -376,15 +375,15 @@ class ViewController: UIViewController {
             
         }
         
-            
+        
         //     ... add other actions ...
-//        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
-//            let popoverPresenter = alertController.popoverPresentationController
-//            let menuButtonTag = 12
-//            let menuButton = buttonsView.viewWithTag(menuButtonTag)
-//            popoverPresenter?.sourceView = menuButton
-//            popoverPresenter?.sourceRect = (menuButton?.bounds)!
-//        }
+        //        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
+        //            let popoverPresenter = alertController.popoverPresentationController
+        //            let menuButtonTag = 12
+        //            let menuButton = buttonsView.viewWithTag(menuButtonTag)
+        //            popoverPresenter?.sourceView = menuButton
+        //            popoverPresenter?.sourceRect = (menuButton?.bounds)!
+        //        }
         self.present(alertController, animated: true, completion: nil)
     }
 }
