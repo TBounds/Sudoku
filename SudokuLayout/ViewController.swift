@@ -149,6 +149,9 @@ class ViewController: UIViewController {
         sender.isSelected = pencilEnabled
     }
 
+    //------------------------------------------------------------------------//
+    //------------------------------- Menu UI --------------------------------//
+    //------------------------------------------------------------------------//
     @IBAction func mainMenu(sender: AnyObject) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let puzzle = appDelegate.sudoku
@@ -157,38 +160,72 @@ class ViewController: UIViewController {
             title: "Main Menu",
             message: nil,
             preferredStyle: .actionSheet)
+        
         alertController.addAction(UIAlertAction(
             title: "Cancel",
             style: .cancel,
             handler: nil))
+        
+        // New Easy Game
         alertController.addAction(UIAlertAction(
             title: "New Easy Game",
             style: .default,
             handler: { (UIAlertAction) -> Void in
-                appDelegate.sudoku = SudokuPuzzle()
-                // let puzzleStr = randomPuzzle(appDelegate.simplePuzzles)
-                let cellsUsed = (appDelegate.sudoku?.loadPuzzle(puzzleString: "simple"))
-                self.remainingOpenCells = self.MAX_NUM_CELLS - cellsUsed!
+                let confirmationController = UIAlertController(
+                    title: "Starting a new easy game.",
+                    message: "Are you sure?",
+                    preferredStyle: .alert)
+                confirmationController.addAction(UIKit.UIAlertAction(
+                    title: "Cancel",
+                    style: .cancel,
+                    handler: nil))
+                confirmationController.addAction(UIKit.UIAlertAction(
+                    title: "Yes",
+                    style: .default,
+                    handler: { (UIAlertAction) -> Void in
+                        appDelegate.sudoku = SudokuPuzzle()
+                        // let puzzleStr = randomPuzzle(appDelegate.simplePuzzles)
+                        let cellsUsed = appDelegate.sudoku?.loadPuzzle(puzzleString: "simple")
+                        self.remainingOpenCells = self.MAX_NUM_CELLS - cellsUsed!
+                        
+                        self.puzzleView.selected = (-1, -1)
+                        self.puzzleView.setNeedsDisplay() }))
                 
-                NSLog("remainingCells = \(self.remainingOpenCells)") // DEBUG
-                
-                self.puzzleView.selected = (-1, -1)
-                self.puzzleView.setNeedsDisplay()}))
+                self.present(confirmationController, animated: true, completion: nil)
+        }))
         
+        // New Hard Game
         alertController.addAction(UIAlertAction(
             title: "New Hard Game",
             style: .default,
             handler: { (UIAlertAction) -> Void in
-                appDelegate.sudoku = SudokuPuzzle()
-                // let puzzleStr = randomPuzzle(appDelegate.simplePuzzles)
-                let cellsUsed = appDelegate.sudoku?.loadPuzzle(puzzleString: "hard")
-                self.remainingOpenCells = self.MAX_NUM_CELLS - cellsUsed!
                 
-                NSLog("remainingCells = \(self.remainingOpenCells)") // DEBUG
+                let confirmationController = UIAlertController(
+                    title: "Starting a new hard game.",
+                    message: "Are you sure?",
+                    preferredStyle: .alert)
+                confirmationController.addAction(UIKit.UIAlertAction(
+                    title: "Cancel",
+                    style: .cancel,
+                    handler: nil))
+                confirmationController.addAction(UIKit.UIAlertAction(
+                    title: "Yes",
+                    style: .default,
+                    handler: { (UIAlertAction) -> Void in
+                        appDelegate.sudoku = SudokuPuzzle()
+                        // let puzzleStr = randomPuzzle(appDelegate.simplePuzzles)
+                        let cellsUsed = appDelegate.sudoku?.loadPuzzle(puzzleString: "hard")
+                        self.remainingOpenCells = self.MAX_NUM_CELLS - cellsUsed!
+                        
+                        self.puzzleView.selected = (-1, -1)
+                        self.puzzleView.setNeedsDisplay() }))
                 
-                self.puzzleView.selected = (-1, -1)
-                self.puzzleView.setNeedsDisplay()}))
+                self.present(confirmationController, animated: true, completion: nil)
+                
+                
+        }))
         
+        // Show Conflicting Cells
         if !puzzleView.showConflictingCells {
             alertController.addAction(UIAlertAction(
                 title: "Highlight Conflicting Cells",
@@ -206,6 +243,7 @@ class ViewController: UIViewController {
                     self.puzzleView.setNeedsDisplay()}))
         }
         
+        // Clear Conflicting Cells
         alertController.addAction(UIAlertAction(
             title: "Clear All Conflicting Cells",
             style: .default,
@@ -220,29 +258,62 @@ class ViewController: UIViewController {
                     style: .cancel,
                     handler: nil))
                 confirmationController.addAction(UIKit.UIAlertAction(
-                    title: "Okay",
+                    title: "Yes",
                     style: .default,
                     handler: { (UIAlertAction) -> Void in
                         puzzle?.clearAllConflictingCells()
                         self.puzzleView.setNeedsDisplay() }))
                 
                 self.present(confirmationController, animated: true, completion: nil)
-
+                
         }))
         
+        // Clear Pencils
         alertController.addAction(UIAlertAction(
             title: "Clear All Pencils",
             style: .default,
             handler: { (UIAlertAction) -> Void in
-                puzzle?.clearAllPencilsInPuzzle()
-                self.puzzleView.setNeedsDisplay()}))
+                let confirmationController = UIAlertController(
+                    title: "Clearing all pencils in puzzle.",
+                    message: "Are you sure?",
+                    preferredStyle: .alert)
+                confirmationController.addAction(UIKit.UIAlertAction(
+                    title: "Cancel",
+                    style: .cancel,
+                    handler: nil))
+                confirmationController.addAction(UIKit.UIAlertAction(
+                    title: "Yes",
+                    style: .default,
+                    handler: { (UIAlertAction) -> Void in
+                        puzzle?.clearAllPencilsInPuzzle()
+                        self.puzzleView.setNeedsDisplay() }))
+                
+                self.present(confirmationController, animated: true, completion: nil)
         
+        }))
+        
+        // Clear Non-Fixed Cells
         alertController.addAction(UIAlertAction(
-            title: "Clear All Cells",
+            title: "Clear Non-Fixed Cells",
             style: .default,
             handler: { (UIAlertAction) -> Void in
-                puzzle?.clearNonFixedValues()
-                self.puzzleView.setNeedsDisplay()}))
+                let confirmationController = UIAlertController(
+                    title: "Clearing all non-fixed cells in puzzle.",
+                    message: "Are you sure?",
+                    preferredStyle: .alert)
+                confirmationController.addAction(UIKit.UIAlertAction(
+                    title: "Cancel",
+                    style: .cancel,
+                    handler: nil))
+                confirmationController.addAction(UIKit.UIAlertAction(
+                    title: "Yes",
+                    style: .default,
+                    handler: { (UIAlertAction) -> Void in
+                        puzzle?.clearNonFixedValues()
+                        self.puzzleView.setNeedsDisplay() }))
+                
+                self.present(confirmationController, animated: true, completion: nil)
+        }))
         
             
         //     ... add other actions ...

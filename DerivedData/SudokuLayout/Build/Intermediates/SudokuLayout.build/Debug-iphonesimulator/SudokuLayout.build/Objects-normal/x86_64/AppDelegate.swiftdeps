@@ -14,16 +14,16 @@ provides-dynamic-lookup:
 - "applicationDidBecomeActive"
 - "applicationWillTerminate"
 depends-top-level:
-- !private "StringLiteralType"
-- !private "BooleanLiteralType"
-- "UIWindow"
 - "UIResponder"
-- "Bool"
-- "UIApplicationLaunchOptionsKey"
-- "UIApplicationDelegate"
+- "UIWindow"
 - "UIApplication"
-- "SudokuPuzzle"
+- !private "StringLiteralType"
+- "Bool"
+- !private "BooleanLiteralType"
 - "AppDelegate"
+- "UIApplicationDelegate"
+- "SudokuPuzzle"
+- "UIApplicationLaunchOptionsKey"
 - "AssignmentPrecedence"
 depends-member:
 - !private ["Ps9AnyObject", "SudokuPuzzle"]
