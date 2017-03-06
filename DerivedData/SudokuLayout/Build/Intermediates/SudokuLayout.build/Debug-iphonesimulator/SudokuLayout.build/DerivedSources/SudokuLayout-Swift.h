@@ -154,6 +154,7 @@ SWIFT_CLASS("_TtC12SudokuLayout11ButtonsView")
 
 SWIFT_CLASS("_TtC12SudokuLayout10PuzzleView")
 @interface PuzzleView : UIView
+@property (nonatomic) BOOL gameWon;
 @property (nonatomic) BOOL showConflictingCells;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -168,9 +169,8 @@ SWIFT_CLASS("_TtC12SudokuLayout10PuzzleView")
 
 SWIFT_CLASS("_TtC12SudokuLayout14ViewController")
 @interface ViewController : UIViewController
-@property (nonatomic, readonly) NSInteger MAX_NUM_CELLS;
 @property (nonatomic) BOOL pencilEnabled;
-@property (nonatomic) NSInteger remainingOpenCells;
+@property (nonatomic) BOOL gameWon;
 @property (nonatomic, weak) IBOutlet PuzzleView * _Null_unspecified puzzleView;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;

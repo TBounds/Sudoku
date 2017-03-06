@@ -18,9 +18,10 @@ class ButtonsView: UIView {
         [6, 7, 8, 9, 10, 12]
     ]
     
-    let buttonTagsPortraitTall = [[1, 2, 3, 4],         // 3 x 4 layout
-        [5, 6, 7, 8],
-        [9, 10, 11, 12]]
+    let buttonTagsPortraitTall = [
+        [1, 2, 3, 10],         // 3 x 4 layout
+        [4, 5, 6, 11],
+        [7, 8, 9, 12]]
     
     let buttonTagsLandscape = [[1, 6],                  // 6 x 2 layout
         [2, 7],

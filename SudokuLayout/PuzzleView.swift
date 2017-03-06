@@ -11,6 +11,7 @@ import UIKit
 class PuzzleView: UIView {
     
     var selected: (row: Int, column: Int) = (row: -1, column: -1)
+    var gameWon = false
     var showConflictingCells: Bool = true
     
     required override init(frame: CGRect) {
@@ -110,12 +111,15 @@ class PuzzleView: UIView {
             let distBetweenLines = boardRect.size.width/9
             
             // Highlights selected cell.
-            if selected.row >= 0 && selected.column >= 0 {
-                UIColor.yellow.setFill()
-                let x = boardRect.origin.x + CGFloat(selected.column)*distBetweenLines
-                let y = boardRect.origin.y + CGFloat(selected.row)*distBetweenLines
-                context.fill(CGRect(x: x, y: y, width: distBetweenLines - 0.5, height: distBetweenLines - 0.5))
+            if !self.gameWon {
+                if selected.row >= 0 && selected.column >= 0 {
+                    UIColor.yellow.setFill()
+                    let x = boardRect.origin.x + CGFloat(selected.column)*distBetweenLines
+                    let y = boardRect.origin.y + CGFloat(selected.row)*distBetweenLines
+                    context.fill(CGRect(x: x, y: y, width: distBetweenLines - 0.5, height: distBetweenLines - 0.5))
+                }
             }
+            
             
             // Draw the grid rows.
             for r in 0 ..< 10 {

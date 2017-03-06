@@ -6,24 +6,24 @@ provides-nominal:
 provides-member:
 - ["C12SudokuLayout11AppDelegate", ""]
 provides-dynamic-lookup:
-- "applicationWillResignActive"
+- "applicationDidBecomeActive"
 - "applicationWillEnterForeground"
 - "applicationDidEnterBackground"
 - "application"
-- "window"
-- "applicationDidBecomeActive"
 - "applicationWillTerminate"
+- "applicationWillResignActive"
+- "window"
 depends-top-level:
+- "Bool"
+- "UIApplicationLaunchOptionsKey"
+- !private "StringLiteralType"
+- !private "BooleanLiteralType"
+- "AppDelegate"
 - "UIResponder"
 - "UIWindow"
 - "UIApplication"
-- !private "StringLiteralType"
-- "Bool"
-- !private "BooleanLiteralType"
-- "AppDelegate"
-- "UIApplicationDelegate"
 - "SudokuPuzzle"
-- "UIApplicationLaunchOptionsKey"
+- "UIApplicationDelegate"
 - "AssignmentPrecedence"
 depends-member:
 - !private ["Ps9AnyObject", "SudokuPuzzle"]
@@ -158,7 +158,6 @@ depends-member:
 - ["Ps8Hashable", "sudoku"]
 - ["Ps8Hashable", "window"]
 - ["Ps8Hashable", ""]
-- ["Si", "deinit"]
 - !private ["Ps25LosslessStringConvertible", "init"]
 - !private ["Ps10MirrorPath", "init"]
 - !private ["PSo8NSCoding", "init"]
@@ -305,7 +304,6 @@ depends-nominal:
 - !private "Ps26ExpressibleByStringLiteral"
 - !private "Ps33ExpressibleByUnicodeScalarLiteral"
 - "Ps8Hashable"
-- "Si"
 - !private "Ps25LosslessStringConvertible"
 - !private "Ps10MirrorPath"
 - !private "PSo8NSCoding"

@@ -10,8 +10,6 @@ import Foundation
 
 class SudokuPuzzle {
     
-    var cellsUsedOnLoad : Int = 0
-    
     struct PuzzleCell {
         var pencils: [Int] = Array(repeating: 0, count: 10) // Array of zeros to hold pencil values for a vell.
         var number: Int = 0
@@ -46,10 +44,8 @@ class SudokuPuzzle {
     }
     
     // Load new game encoded with given string.
-    func loadPuzzle(puzzleString: String) -> Int {
-        
-        var cellsUsed : Int = 0
-        
+    func loadPuzzle(puzzleString: String) {
+                
         let puzzles = getPuzzles(name: puzzleString)                                    // Loads all puzzles from plist
         let randomPuzzleIndex = Int(arc4random_uniform(UInt32(puzzles.count)))          // Random index to choose which puzzle to use.
         
@@ -62,15 +58,11 @@ class SudokuPuzzle {
                 if puzzleElements[puzzleIndex] != "." {
                     puzzle[r][c].number = Int(puzzleElements[puzzleIndex])!
                     puzzle[r][c].isFixed = true
-                    cellsUsed += 1
                 }
                 
                 puzzleIndex += 1
             }
         }
-        cellsUsedOnLoad = cellsUsed
-        
-        return cellsUsed
         
     }
     
@@ -246,6 +238,19 @@ class SudokuPuzzle {
                 }
             }
         }
+    }
+    
+    func checkIfPuzzleIsFilled() -> Bool {
+        
+        for r in 0 ..< 9 {
+            for c in 0 ..< 9 {
+                if puzzle[r][c].number == 0 {
+                    return false
+                }
+            }
+        }
+        
+        return true
     }
 
 }
