@@ -56,8 +56,6 @@ class ViewController: UIViewController {
             // Writing in cell values
             if (!pencilEnabled && !(puzzle?.anyPencilSetAtCell(row: row, column: col))! ) {
                 
-
-                
                 if tag == puzzle?.puzzle[row][col].number {
                     puzzle?.setNumber(number: 0, row: row, column: col)
                 }
@@ -200,7 +198,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pencilSelected(_ sender: UIButton) {
-        NSLog("\(sender.tag)")
         
         pencilEnabled = !pencilEnabled   // toggle
         sender.isSelected = pencilEnabled

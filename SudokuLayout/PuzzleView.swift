@@ -181,9 +181,6 @@ class PuzzleView: UIView {
                     // Draw penciled values.
                     if (puzzle!.anyPencilSetAtCell(row: row, column: col)) {
                         
-                        // puzzle!.puzzle[row][col].pencils[i]
-                        // let s2 = s*CGFloat(i)
-                        
                         var index = 1
                         
                         for r in 0 ..< 3 {
@@ -193,7 +190,6 @@ class PuzzleView: UIView {
                                     
                                     let text = "\(index)" as NSString
                                     let textSize = text.size(attributes: pencilAttributes)
-                                    
                                     
                                     let sr = s*2*CGFloat(r) + s
                                     let sc = s*2*CGFloat(c) + s
@@ -209,8 +205,6 @@ class PuzzleView: UIView {
                                 index += 1
                                 
                             }
-                            
-                            // NSLog("should print pencil value: \(i)")
                             
                         }
                         

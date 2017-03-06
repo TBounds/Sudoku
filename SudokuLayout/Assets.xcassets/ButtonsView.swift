@@ -9,6 +9,17 @@
 import UIKit
 
 class ButtonsView: UIView {
+    
+    
+    override func awakeFromNib() {
+        let tileImage = UIImage(named: "Button")
+        for tag in 1 ... 12 {
+            let button = self.viewWithTag(tag) as! UIButton
+            button.setBackgroundImage(tileImage, for: UIControlState())
+            button.backgroundColor = UIColor.clear // transparent
+        }
+    }
+
 
     //---------------------------------------------------//
     //----- Programmtically managing button layout. -----//

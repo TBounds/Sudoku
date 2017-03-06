@@ -140,6 +140,7 @@ SWIFT_CLASS("_TtC12SudokuLayout11AppDelegate")
 
 SWIFT_CLASS("_TtC12SudokuLayout11ButtonsView")
 @interface ButtonsView : UIView
+- (void)awakeFromNib;
 @property (nonatomic, readonly, copy) NSArray<NSArray<NSNumber *> *> * _Nonnull buttonTagsPortrait;
 @property (nonatomic, readonly, copy) NSArray<NSArray<NSNumber *> *> * _Nonnull buttonTagsPortraitTall;
 @property (nonatomic, readonly, copy) NSArray<NSArray<NSNumber *> *> * _Nonnull buttonTagsLandscape;
