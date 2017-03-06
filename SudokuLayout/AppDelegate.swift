@@ -13,6 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var sudoku : SudokuPuzzle?
+    
+    func sandboxArchivePath() -> String {
+        let dir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! as NSString
+        return dir.appendingPathComponent("sudokuPuzzle.plist")
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -20,8 +25,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.sudoku = SudokuPuzzle()
         
         // Load puzzle from sandbox. XXX TODO
-        self.sudoku!.loadPuzzle(puzzleString: "simple") // Load new simple puzzle
-        
+        let archiveName = sandboxArchivePath()
+        if FileManager.default.fileExists(atPath: archiveName) {
+            
+            NSLog("Loading puzzle.")
+            
+            let saveState = NSArray(contentsOfFile: archiveName) as! [[SudokuPuzzle.PuzzleCell]]
+            sudoku!.puzzle = saveState
+        }
+        else {
+            NSLog("New simple puzzle")
+            self.sudoku!.loadPuzzle(puzzleString: "simple") // Load new simple puzzle
+
+        }
         
         return true
     }
@@ -32,8 +48,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        NSLog("Application Entered Background")
+        let archiveName = sandboxArchivePath()
+        NSLog("archiveName = \(archiveName)")
+        let saveState : NSArray = sudoku!.puzzle as NSArray
+        NSLog("saveState = \(saveState)")
+        saveState.write(toFile: archiveName, atomically : true)
+
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
