@@ -30,8 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             NSLog("Loading puzzle.")
             
-            let saveState = NSArray(contentsOfFile: archiveName) as! [[SudokuPuzzle.PuzzleCell]]
-            sudoku!.puzzle = saveState
+            let saveState = NSArray(contentsOfFile: archiveName)
+            self.sudoku?.setState(puzzleArray: saveState! as NSArray)
         }
         else {
             NSLog("New simple puzzle")
@@ -48,11 +48,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        NSLog("Application Entered Background")
+       
+        self.sudoku = SudokuPuzzle()
+
         let archiveName = sandboxArchivePath()
-        NSLog("archiveName = \(archiveName)")
-        let saveState : NSArray = sudoku!.puzzle as NSArray
-        NSLog("saveState = \(saveState)")
+        let saveState : NSArray = (self.sudoku?.savedState())!
+        
         saveState.write(toFile: archiveName, atomically : true)
 
     }

@@ -83,7 +83,7 @@ class PuzzleView: UIView {
         
         // Drawing code
         let boldFont = UIFont(name: "Helvetica", size: 30)
-        let tinyFont = UIFont(name: "Helvetica", size: 10)
+        let tinyFont = UIFont(name: "Helvetica", size: 15)
         
         let fixedAttributes = [NSFontAttributeName : boldFont!, NSForegroundColorAttributeName: UIColor.black]
         let nonFixedAttributes = [NSFontAttributeName : boldFont!, NSForegroundColorAttributeName: UIColor.darkGray]

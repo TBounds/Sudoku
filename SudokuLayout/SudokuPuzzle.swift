@@ -28,11 +28,47 @@ class SudokuPuzzle {
     // Write to plist compatible array.
     func savedState() -> NSArray {
         
-        return [0]
+        let savedState = NSMutableArray(capacity: 9*9)
+        
+        for r in 0 ..< 9 {
+            for c in 0 ..< 9 {
+                let cell = puzzle[r][c]
+                // http://stackoverflow.com/questions/38165569/concatenate-swift-array-of-int-to-create-a-new-int
+                // let pencils = cell.pencils.reduce(0, {$0*10 + $1})
+                let cellDict : NSDictionary = ["pencils" : cell.pencils, "number" : cell.number, "isFixed" : cell.isFixed, "isConflicting" : cell.isConflicting]
+                
+                savedState.add(cellDict)
+                
+            }
+        }
+        
+        return savedState
+    }
+    
+    func sandboxArchivePath() -> String {
+        let dir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! as NSString
+        return dir.appendingPathComponent("sudokuPuzzle.plist")
     }
     
     // Read from plist compatible array.
-    func setState(puzzleArray: NSString) {
+    func setState(puzzleArray: NSArray) {
+        
+        let archiveName = sandboxArchivePath()
+        if FileManager.default.fileExists(atPath: archiveName) {
+            
+            NSLog("Loading puzzle.")
+            
+            let saveState = NSMutableArray(contentsOfFile: archiveName)
+            
+            for r in 0 ..< 9 {
+                for c in 0 ..< 9 {
+                    puzzle[r][c].pencils = (saveState?[c*r] as! PuzzleCell).pencils
+                    puzzle[r][c].number = (saveState?[c*r] as! PuzzleCell).number
+                    puzzle[r][c].isFixed = (saveState?[c*r] as! PuzzleCell).isFixed
+                    puzzle[r][c].isConflicting = (saveState?[c*r] as! PuzzleCell).isConflicting
+                }
+            }
+        }
         
     }
     
@@ -241,7 +277,6 @@ class SudokuPuzzle {
     }
     
     func checkIfPuzzleIsFilled() -> Bool {
-        
         for r in 0 ..< 9 {
             for c in 0 ..< 9 {
                 if puzzle[r][c].number == 0 {

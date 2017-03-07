@@ -6,39 +6,38 @@ provides-nominal:
 provides-member:
 - ["C12SudokuLayout11AppDelegate", ""]
 provides-dynamic-lookup:
-- "applicationWillEnterForeground"
-- "applicationWillTerminate"
-- "applicationDidEnterBackground"
-- "sandboxArchivePath"
 - "application"
-- "window"
-- "applicationWillResignActive"
+- "applicationWillEnterForeground"
 - "applicationDidBecomeActive"
+- "applicationDidEnterBackground"
+- "window"
+- "applicationWillTerminate"
+- "applicationWillResignActive"
+- "sandboxArchivePath"
 depends-top-level:
-- "CastingPrecedence"
-- "AssignmentPrecedence"
-- !private "NSSearchPathForDirectoriesInDomains"
-- "UIResponder"
-- "Bool"
-- !private "NSArray"
-- !private "BooleanLiteralType"
-- "UIApplicationLaunchOptionsKey"
-- "UIWindow"
-- "SudokuPuzzle"
-- "AppDelegate"
-- "String"
-- "UIApplicationDelegate"
-- !private "NSString"
-- !private "NSLog"
-- !private "StringLiteralType"
 - !private "FileManager"
+- "CastingPrecedence"
+- !private "NSSearchPathForDirectoriesInDomains"
+- "UIWindow"
+- "AssignmentPrecedence"
+- !private "NSLog"
+- "UIApplicationLaunchOptionsKey"
+- "UIResponder"
+- !private "NSArray"
+- "UIApplicationDelegate"
+- "String"
 - "UIApplication"
+- !private "BooleanLiteralType"
+- "Bool"
+- !private "StringLiteralType"
+- "AppDelegate"
+- !private "NSString"
+- "SudokuPuzzle"
 depends-member:
 - !private ["Ps9AnyObject", "FileManager"]
 - !private ["Ps9AnyObject", "NSArray"]
 - !private ["Ps9AnyObject", "NSLog"]
 - !private ["Ps9AnyObject", "NSSearchPathForDirectoriesInDomains"]
-- !private ["Ps9AnyObject", "PuzzleCell"]
 - !private ["Ps9AnyObject", "SudokuPuzzle"]
 - !private ["Ps9AnyObject", "appendingPathComponent"]
 - ["Ps9AnyObject", "application"]
@@ -57,8 +56,9 @@ depends-member:
 - !private ["Ps9AnyObject", "fileExists"]
 - !private ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "loadPuzzle"]
-- !private ["Ps9AnyObject", "puzzle"]
 - ["Ps9AnyObject", "sandboxArchivePath"]
+- !private ["Ps9AnyObject", "savedState"]
+- !private ["Ps9AnyObject", "setState"]
 - ["Ps9AnyObject", "sudoku"]
 - ["Ps9AnyObject", "window"]
 - !private ["Ps9AnyObject", "write"]
@@ -132,7 +132,6 @@ depends-member:
 - ["Ps7CVarArg", "window"]
 - !private ["Ps7CVarArg", "write"]
 - ["Ps7CVarArg", ""]
-- !private ["Vs9Character", "deinit"]
 - !private ["Ps10Collection", "Iterator"]
 - !private ["Ps10Collection", "_Element"]
 - !private ["Ps10Collection", "first"]
@@ -205,7 +204,6 @@ depends-member:
 - ["Ps23CustomStringConvertible", "window"]
 - !private ["Ps23CustomStringConvertible", "write"]
 - ["Ps23CustomStringConvertible", ""]
-- !private ["Sd", "deinit"]
 - !private ["Ps9Equatable", "FileManager"]
 - !private ["Ps9Equatable", "NSArray"]
 - !private ["Ps9Equatable", "NSLog"]
@@ -252,7 +250,6 @@ depends-member:
 - !private ["CSo11FileManager", "default"]
 - ["CSo11FileManager", "deinit"]
 - !private ["CSo11FileManager", "fileExists"]
-- !private ["Sf", "deinit"]
 - !private ["Ps8Hashable", "FileManager"]
 - !private ["Ps8Hashable", "NSArray"]
 - !private ["Ps8Hashable", "NSLog"]
@@ -288,11 +285,6 @@ depends-member:
 - !private ["Ps13IndexableBase", "_Element"]
 - !private ["Ps13IndexableBase", "first"]
 - !private ["Vs16IndexingIterator", "Element"]
-- !private ["Si", "deinit"]
-- !private ["Vs5Int16", "deinit"]
-- !private ["Vs5Int32", "deinit"]
-- !private ["Vs5Int64", "deinit"]
-- !private ["Vs4Int8", "deinit"]
 - !private ["Ps16IteratorProtocol", "Element"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps25LosslessStringConvertible", "init"]
@@ -409,11 +401,11 @@ depends-member:
 - !private ["Ps10SetAlgebra", "userDomainMask"]
 - ["SS", "deinit"]
 - !private ["SS", "init"]
-- !private ["C12SudokuLayout12SudokuPuzzle", "PuzzleCell"]
 - ["C12SudokuLayout12SudokuPuzzle", "deinit"]
 - !private ["C12SudokuLayout12SudokuPuzzle", "init"]
 - !private ["C12SudokuLayout12SudokuPuzzle", "loadPuzzle"]
-- !private ["C12SudokuLayout12SudokuPuzzle", "puzzle"]
+- !private ["C12SudokuLayout12SudokuPuzzle", "savedState"]
+- !private ["C12SudokuLayout12SudokuPuzzle", "setState"]
 - !private ["Ps16TextOutputStream", "init"]
 - !private ["Ps20TextOutputStreamable", "init"]
 - !private ["PSo21UIApplicationDelegate", "FileManager"]
@@ -488,12 +480,6 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "sudoku"]
 - ["PSo30UIResponderStandardEditActions", "window"]
 - ["PSo30UIResponderStandardEditActions", ""]
-- !private ["Su", "deinit"]
-- !private ["Vs6UInt16", "deinit"]
-- !private ["Vs6UInt32", "deinit"]
-- !private ["Vs6UInt64", "deinit"]
-- !private ["Vs5UInt8", "deinit"]
-- !private ["Sc", "deinit"]
 - !private ["Ps14_ArrayProtocol", "Iterator"]
 - !private ["Ps14_ArrayProtocol", "_Element"]
 - !private ["Ps14_ArrayProtocol", "first"]
@@ -548,14 +534,12 @@ depends-nominal:
 - !private "Ps22BidirectionalIndexable"
 - "Sb"
 - "Ps7CVarArg"
-- !private "Vs9Character"
 - !private "Ps10Collection"
 - !private "Ps10Comparable"
 - "Ps28CustomDebugStringConvertible"
 - !private "Ps29CustomPlaygroundQuickLookable"
 - !private "Ps17CustomReflectable"
 - "Ps23CustomStringConvertible"
-- !private "Sd"
 - "Ps9Equatable"
 - !private "Ps25ExpressibleByArrayLiteral"
 - !private "Ps27ExpressibleByBooleanLiteral"
@@ -564,16 +548,10 @@ depends-nominal:
 - !private "Ps26ExpressibleByStringLiteral"
 - !private "Ps33ExpressibleByUnicodeScalarLiteral"
 - "CSo11FileManager"
-- !private "Sf"
 - "Ps8Hashable"
 - !private "Ps9Indexable"
 - !private "Ps13IndexableBase"
 - !private "Vs16IndexingIterator"
-- !private "Si"
-- !private "Vs5Int16"
-- !private "Vs5Int32"
-- !private "Vs5Int64"
-- !private "Vs4Int8"
 - !private "Ps16IteratorProtocol"
 - !private "Ps25LosslessStringConvertible"
 - !private "Ps10MirrorPath"
@@ -606,12 +584,6 @@ depends-nominal:
 - "PSo21UIApplicationDelegate"
 - "CSo11UIResponder"
 - "PSo30UIResponderStandardEditActions"
-- !private "Su"
-- !private "Vs6UInt16"
-- !private "Vs6UInt32"
-- !private "Vs6UInt64"
-- !private "Vs5UInt8"
-- !private "Sc"
 - !private "Ps14_ArrayProtocol"
 - !private "Ps24_DestructorSafeContainer"
 - !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
