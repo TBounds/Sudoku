@@ -154,8 +154,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func deleteSelected(_ sender: UIButton) {
-        NSLog("\(sender.tag)")
-        
+         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let puzzle = appDelegate.sudoku
         

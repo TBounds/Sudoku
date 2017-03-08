@@ -6,40 +6,38 @@ provides-nominal:
 provides-member:
 - ["C12SudokuLayout14ViewController", ""]
 provides-dynamic-lookup:
+- "deleteSelected"
+- "pencilEnabled"
+- "didReceiveMemoryWarning"
+- "pencilSelected"
 - "viewDidLoad"
 - "gameWon"
-- "didReceiveMemoryWarning"
-- "deleteSelected"
-- "pencilSelected"
-- "pencilEnabled"
-- "tileSelected"
-- "puzzleView"
 - "mainMenu"
+- "puzzleView"
+- "tileSelected"
 depends-top-level:
-- "Bool"
-- !private "SudokuPuzzle"
-- "AssignmentPrecedence"
-- !private "!="
-- !private "StringLiteralType"
-- !private "UIAlertAction"
+- !private "&&"
+- "PuzzleView"
+- "UIButton"
 - "UIViewController"
 - "BooleanLiteralType"
-- "PuzzleView"
-- !private "!"
-- "AnyObject"
-- !private "UIAlertController"
-- !private "UIKit"
-- !private "AppDelegate"
-- !private "Void"
-- !private "&&"
-- "UIButton"
-- "CastingPrecedence"
-- !private "NSLog"
 - !private "UIApplication"
+- !private "Void"
+- !private "StringLiteralType"
+- "Bool"
+- !private "AppDelegate"
+- "AnyObject"
+- "CastingPrecedence"
 - !private "=="
+- "AssignmentPrecedence"
+- !private "SudokuPuzzle"
+- !private "UIAlertAction"
+- !private "UIKit"
+- !private "!"
 - "ViewController"
+- !private "!="
+- !private "UIAlertController"
 depends-member:
-- !private ["Ps9AnyObject", "NSLog"]
 - !private ["Ps9AnyObject", "SudokuPuzzle"]
 - !private ["Ps9AnyObject", "UIAlertAction"]
 - !private ["Ps9AnyObject", "UIAlertController"]
@@ -120,7 +118,6 @@ depends-member:
 - !private ["Ps7CVarArg", "Index"]
 - !private ["Ps7CVarArg", "IndexDistance"]
 - !private ["Ps7CVarArg", "IntegerLiteralType"]
-- !private ["Ps7CVarArg", "NSLog"]
 - !private ["Ps7CVarArg", "Stride"]
 - !private ["Ps7CVarArg", "SubSequence"]
 - !private ["Ps7CVarArg", "SudokuPuzzle"]
@@ -152,7 +149,6 @@ depends-member:
 - ["Ps7CVarArg", "tileSelected"]
 - ["Ps7CVarArg", "viewDidLoad"]
 - ["Ps7CVarArg", ""]
-- !private ["Vs9Character", "deinit"]
 - !private ["Ps10Collection", "Index"]
 - !private ["Ps10Collection", "IndexDistance"]
 - !private ["Ps10Collection", "Indices"]
@@ -166,7 +162,6 @@ depends-member:
 - !private ["Ps10Comparable", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "Index"]
 - !private ["Ps28CustomDebugStringConvertible", "IndexDistance"]
-- !private ["Ps28CustomDebugStringConvertible", "NSLog"]
 - !private ["Ps28CustomDebugStringConvertible", "RawValue"]
 - !private ["Ps28CustomDebugStringConvertible", "SubSequence"]
 - !private ["Ps28CustomDebugStringConvertible", "SudokuPuzzle"]
@@ -216,7 +211,6 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "Index"]
 - !private ["Ps23CustomStringConvertible", "IndexDistance"]
 - !private ["Ps23CustomStringConvertible", "IntegerLiteralType"]
-- !private ["Ps23CustomStringConvertible", "NSLog"]
 - !private ["Ps23CustomStringConvertible", "Stride"]
 - !private ["Ps23CustomStringConvertible", "SubSequence"]
 - !private ["Ps23CustomStringConvertible", "SudokuPuzzle"]
@@ -259,9 +253,7 @@ depends-member:
 - !private ["Vs26DefaultRandomAccessIndices", "Iterator"]
 - !private ["Vs26DefaultRandomAccessIndices", "SubSequence"]
 - !private ["Vs26DefaultRandomAccessIndices", "_Element"]
-- !private ["Sd", "deinit"]
 - !private ["Ps9Equatable", "IntegerLiteralType"]
-- !private ["Ps9Equatable", "NSLog"]
 - !private ["Ps9Equatable", "Stride"]
 - !private ["Ps9Equatable", "SudokuPuzzle"]
 - !private ["Ps9Equatable", "UIAlertAction"]
@@ -309,9 +301,7 @@ depends-member:
 - !private ["Ps32ExpressibleByStringInterpolation", "init"]
 - !private ["Ps26ExpressibleByStringLiteral", "init"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
-- !private ["Sf", "deinit"]
 - !private ["Ps8Hashable", "IntegerLiteralType"]
-- !private ["Ps8Hashable", "NSLog"]
 - !private ["Ps8Hashable", "Stride"]
 - !private ["Ps8Hashable", "SudokuPuzzle"]
 - !private ["Ps8Hashable", "UIAlertAction"]
@@ -365,10 +355,6 @@ depends-member:
 - !private ["Si", "Stride"]
 - !private ["Si", "_DisabledRangeIndex"]
 - ["Si", "deinit"]
-- !private ["Vs5Int16", "deinit"]
-- !private ["Vs5Int32", "deinit"]
-- !private ["Vs5Int64", "deinit"]
-- !private ["Vs4Int8", "deinit"]
 - !private ["Ps7Integer", "IntegerLiteralType"]
 - !private ["Ps7Integer", "Stride"]
 - !private ["Ps7Integer", "_DisabledRangeIndex"]
@@ -393,7 +379,6 @@ depends-member:
 - !private ["Ps16MutableIndexable", "_Element"]
 - !private ["Ps16MutableIndexable", "subscript"]
 - ["CSo7NSCoder", "deinit"]
-- !private ["PSo8NSCoding", "NSLog"]
 - !private ["PSo8NSCoding", "SudokuPuzzle"]
 - !private ["PSo8NSCoding", "UIAlertAction"]
 - !private ["PSo8NSCoding", "UIAlertController"]
@@ -418,7 +403,6 @@ depends-member:
 - ["PSo8NSCoding", "viewDidLoad"]
 - ["PSo8NSCoding", ""]
 - !private ["PSo9NSCopying", "init"]
-- !private ["PSo26NSExtensionRequestHandling", "NSLog"]
 - !private ["PSo26NSExtensionRequestHandling", "SudokuPuzzle"]
 - !private ["PSo26NSExtensionRequestHandling", "UIAlertAction"]
 - !private ["PSo26NSExtensionRequestHandling", "UIAlertController"]
@@ -441,7 +425,6 @@ depends-member:
 - ["CSo8NSObject", "AnyObject"]
 - !private ["CSo8NSObject", "AppDelegate"]
 - ["CSo8NSObject", "Bool"]
-- !private ["CSo8NSObject", "NSLog"]
 - ["CSo8NSObject", "PuzzleView"]
 - !private ["CSo8NSObject", "SudokuPuzzle"]
 - !private ["CSo8NSObject", "UIAlertAction"]
@@ -470,7 +453,6 @@ depends-member:
 - !private ["CSo8NSObject", "tag"]
 - ["CSo8NSObject", "tileSelected"]
 - ["CSo8NSObject", "viewDidLoad"]
-- !private ["PSo16NSObjectProtocol", "NSLog"]
 - !private ["PSo16NSObjectProtocol", "SudokuPuzzle"]
 - !private ["PSo16NSObjectProtocol", "UIAlertAction"]
 - !private ["PSo16NSObjectProtocol", "UIAlertController"]
@@ -603,7 +585,6 @@ depends-member:
 - !private ["PSo12UIAppearance", "setNeedsDisplay"]
 - !private ["PSo12UIAppearance", "showConflictingCells"]
 - !private ["PSo12UIAppearance", "tag"]
-- !private ["PSo21UIAppearanceContainer", "NSLog"]
 - !private ["PSo21UIAppearanceContainer", "SudokuPuzzle"]
 - !private ["PSo21UIAppearanceContainer", "UIAlertAction"]
 - !private ["PSo21UIAppearanceContainer", "UIAlertController"]
@@ -634,7 +615,6 @@ depends-member:
 - ["CSo8UIButton", "deinit"]
 - !private ["CSo8UIButton", "isSelected"]
 - !private ["CSo8UIButton", "tag"]
-- !private ["PSo18UIContentContainer", "NSLog"]
 - !private ["PSo18UIContentContainer", "SudokuPuzzle"]
 - !private ["PSo18UIContentContainer", "UIAlertAction"]
 - !private ["PSo18UIContentContainer", "UIAlertController"]
@@ -667,7 +647,6 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "setNeedsDisplay"]
 - !private ["PSo13UIDynamicItem", "showConflictingCells"]
 - !private ["PSo13UIDynamicItem", "tag"]
-- !private ["PSo18UIFocusEnvironment", "NSLog"]
 - !private ["PSo18UIFocusEnvironment", "SudokuPuzzle"]
 - !private ["PSo18UIFocusEnvironment", "UIAlertAction"]
 - !private ["PSo18UIFocusEnvironment", "UIAlertController"]
@@ -700,7 +679,6 @@ depends-member:
 - ["CSo11UIResponder", "AnyObject"]
 - !private ["CSo11UIResponder", "AppDelegate"]
 - ["CSo11UIResponder", "Bool"]
-- !private ["CSo11UIResponder", "NSLog"]
 - ["CSo11UIResponder", "PuzzleView"]
 - !private ["CSo11UIResponder", "SudokuPuzzle"]
 - !private ["CSo11UIResponder", "UIAlertAction"]
@@ -729,7 +707,6 @@ depends-member:
 - !private ["CSo11UIResponder", "tag"]
 - ["CSo11UIResponder", "tileSelected"]
 - ["CSo11UIResponder", "viewDidLoad"]
-- !private ["PSo30UIResponderStandardEditActions", "NSLog"]
 - !private ["PSo30UIResponderStandardEditActions", "SudokuPuzzle"]
 - !private ["PSo30UIResponderStandardEditActions", "UIAlertAction"]
 - !private ["PSo30UIResponderStandardEditActions", "UIAlertController"]
@@ -756,7 +733,6 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "tileSelected"]
 - ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
 - ["PSo30UIResponderStandardEditActions", ""]
-- !private ["PSo16UIStateRestoring", "NSLog"]
 - !private ["PSo16UIStateRestoring", "SudokuPuzzle"]
 - !private ["PSo16UIStateRestoring", "UIAlertAction"]
 - !private ["PSo16UIStateRestoring", "UIAlertController"]
@@ -775,7 +751,6 @@ depends-member:
 - ["PSo16UIStateRestoring", "tileSelected"]
 - ["PSo16UIStateRestoring", "viewDidLoad"]
 - ["PSo16UIStateRestoring", ""]
-- !private ["PSo18UITraitEnvironment", "NSLog"]
 - !private ["PSo18UITraitEnvironment", "SudokuPuzzle"]
 - !private ["PSo18UITraitEnvironment", "UIAlertAction"]
 - !private ["PSo18UITraitEnvironment", "UIAlertController"]
@@ -808,7 +783,6 @@ depends-member:
 - ["CSo16UIViewController", "AnyObject"]
 - !private ["CSo16UIViewController", "AppDelegate"]
 - ["CSo16UIViewController", "Bool"]
-- !private ["CSo16UIViewController", "NSLog"]
 - ["CSo16UIViewController", "PuzzleView"]
 - !private ["CSo16UIViewController", "SudokuPuzzle"]
 - !private ["CSo16UIViewController", "UIAlertAction"]
@@ -831,16 +805,9 @@ depends-member:
 - ["CSo16UIViewController", "tileSelected"]
 - ["CSo16UIViewController", "viewDidLoad"]
 - ["CSo16UIViewController", ""]
-- !private ["Su", "deinit"]
-- !private ["Vs6UInt16", "deinit"]
-- !private ["Vs6UInt32", "deinit"]
-- !private ["Vs6UInt64", "deinit"]
-- !private ["Vs5UInt8", "deinit"]
-- !private ["Sc", "deinit"]
 - ["C12SudokuLayout14ViewController", "AnyObject"]
 - !private ["C12SudokuLayout14ViewController", "AppDelegate"]
 - ["C12SudokuLayout14ViewController", "Bool"]
-- !private ["C12SudokuLayout14ViewController", "NSLog"]
 - ["C12SudokuLayout14ViewController", "PuzzleView"]
 - !private ["C12SudokuLayout14ViewController", "SudokuPuzzle"]
 - !private ["C12SudokuLayout14ViewController", "UIAlertAction"]
@@ -887,7 +854,6 @@ depends-member:
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
 - !private ["Ps9_Hashable", "IntegerLiteralType"]
-- !private ["Ps9_Hashable", "NSLog"]
 - !private ["Ps9_Hashable", "Stride"]
 - !private ["Ps9_Hashable", "SudokuPuzzle"]
 - !private ["Ps9_Hashable", "UIAlertAction"]
@@ -959,7 +925,6 @@ depends-nominal:
 - "Sb"
 - !private "PSo15CALayerDelegate"
 - "Ps7CVarArg"
-- !private "Vs9Character"
 - !private "Ps10Collection"
 - !private "Ps10Comparable"
 - "Ps28CustomDebugStringConvertible"
@@ -968,7 +933,6 @@ depends-nominal:
 - "Ps23CustomStringConvertible"
 - !private "Vs27DefaultBidirectionalIndices"
 - !private "Vs26DefaultRandomAccessIndices"
-- !private "Sd"
 - "Ps9Equatable"
 - !private "Ps25ExpressibleByArrayLiteral"
 - !private "Ps27ExpressibleByBooleanLiteral"
@@ -978,17 +942,12 @@ depends-nominal:
 - !private "Ps32ExpressibleByStringInterpolation"
 - !private "Ps26ExpressibleByStringLiteral"
 - !private "Ps33ExpressibleByUnicodeScalarLiteral"
-- !private "Sf"
 - "Ps8Hashable"
 - "SQ"
 - !private "Ps9Indexable"
 - !private "Ps13IndexableBase"
 - !private "Vs16IndexingIterator"
 - "Si"
-- !private "Vs5Int16"
-- !private "Vs5Int32"
-- !private "Vs5Int64"
-- !private "Vs4Int8"
 - !private "Ps7Integer"
 - !private "Ps17IntegerArithmetic"
 - !private "Ps16IteratorProtocol"
@@ -1045,12 +1004,6 @@ depends-nominal:
 - "PSo18UITraitEnvironment"
 - !private "CSo6UIView"
 - "CSo16UIViewController"
-- !private "Su"
-- !private "Vs6UInt16"
-- !private "Vs6UInt32"
-- !private "Vs6UInt64"
-- !private "Vs5UInt8"
-- !private "Sc"
 - "C12SudokuLayout14ViewController"
 - !private "Ps14_ArrayProtocol"
 - !private "Ps37_DefaultCustomPlaygroundQuickLookable"

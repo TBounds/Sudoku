@@ -7,36 +7,34 @@ provides-member:
 - ["C12SudokuLayout11AppDelegate", ""]
 provides-dynamic-lookup:
 - "application"
-- "applicationWillEnterForeground"
 - "applicationDidBecomeActive"
-- "applicationDidEnterBackground"
-- "window"
-- "applicationWillTerminate"
-- "applicationWillResignActive"
 - "sandboxArchivePath"
+- "applicationDidEnterBackground"
+- "applicationWillTerminate"
+- "window"
+- "applicationWillEnterForeground"
+- "applicationWillResignActive"
 depends-top-level:
+- "SudokuPuzzle"
 - !private "FileManager"
-- "CastingPrecedence"
-- !private "NSSearchPathForDirectoriesInDomains"
-- "UIWindow"
-- "AssignmentPrecedence"
-- !private "NSLog"
-- "UIApplicationLaunchOptionsKey"
 - "UIResponder"
 - !private "NSArray"
-- "UIApplicationDelegate"
+- !private "NSString"
+- "AssignmentPrecedence"
 - "String"
-- "UIApplication"
-- !private "BooleanLiteralType"
+- "UIApplicationDelegate"
+- "UIApplicationLaunchOptionsKey"
+- "CastingPrecedence"
 - "Bool"
 - !private "StringLiteralType"
 - "AppDelegate"
-- !private "NSString"
-- "SudokuPuzzle"
+- !private "NSSearchPathForDirectoriesInDomains"
+- "UIApplication"
+- "UIWindow"
+- !private "BooleanLiteralType"
 depends-member:
 - !private ["Ps9AnyObject", "FileManager"]
 - !private ["Ps9AnyObject", "NSArray"]
-- !private ["Ps9AnyObject", "NSLog"]
 - !private ["Ps9AnyObject", "NSSearchPathForDirectoriesInDomains"]
 - !private ["Ps9AnyObject", "SudokuPuzzle"]
 - !private ["Ps9AnyObject", "appendingPathComponent"]
@@ -66,7 +64,6 @@ depends-member:
 - ["C12SudokuLayout11AppDelegate", "Bool"]
 - !private ["C12SudokuLayout11AppDelegate", "FileManager"]
 - !private ["C12SudokuLayout11AppDelegate", "NSArray"]
-- !private ["C12SudokuLayout11AppDelegate", "NSLog"]
 - !private ["C12SudokuLayout11AppDelegate", "NSSearchPathForDirectoriesInDomains"]
 - !private ["C12SudokuLayout11AppDelegate", "NSString"]
 - ["C12SudokuLayout11AppDelegate", "String"]
@@ -106,7 +103,6 @@ depends-member:
 - !private ["Ps7CVarArg", "FileManager"]
 - !private ["Ps7CVarArg", "Iterator"]
 - !private ["Ps7CVarArg", "NSArray"]
-- !private ["Ps7CVarArg", "NSLog"]
 - !private ["Ps7CVarArg", "NSSearchPathForDirectoriesInDomains"]
 - !private ["Ps7CVarArg", "SudokuPuzzle"]
 - !private ["Ps7CVarArg", "_Element"]
@@ -139,7 +135,6 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "FileManager"]
 - !private ["Ps28CustomDebugStringConvertible", "Iterator"]
 - !private ["Ps28CustomDebugStringConvertible", "NSArray"]
-- !private ["Ps28CustomDebugStringConvertible", "NSLog"]
 - !private ["Ps28CustomDebugStringConvertible", "NSSearchPathForDirectoriesInDomains"]
 - !private ["Ps28CustomDebugStringConvertible", "SudokuPuzzle"]
 - !private ["Ps28CustomDebugStringConvertible", "_Element"]
@@ -177,7 +172,6 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "FileManager"]
 - !private ["Ps23CustomStringConvertible", "Iterator"]
 - !private ["Ps23CustomStringConvertible", "NSArray"]
-- !private ["Ps23CustomStringConvertible", "NSLog"]
 - !private ["Ps23CustomStringConvertible", "NSSearchPathForDirectoriesInDomains"]
 - !private ["Ps23CustomStringConvertible", "SudokuPuzzle"]
 - !private ["Ps23CustomStringConvertible", "_Element"]
@@ -206,7 +200,6 @@ depends-member:
 - ["Ps23CustomStringConvertible", ""]
 - !private ["Ps9Equatable", "FileManager"]
 - !private ["Ps9Equatable", "NSArray"]
-- !private ["Ps9Equatable", "NSLog"]
 - !private ["Ps9Equatable", "NSSearchPathForDirectoriesInDomains"]
 - !private ["Ps9Equatable", "SudokuPuzzle"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
@@ -252,7 +245,6 @@ depends-member:
 - !private ["CSo11FileManager", "fileExists"]
 - !private ["Ps8Hashable", "FileManager"]
 - !private ["Ps8Hashable", "NSArray"]
-- !private ["Ps8Hashable", "NSLog"]
 - !private ["Ps8Hashable", "NSSearchPathForDirectoriesInDomains"]
 - !private ["Ps8Hashable", "SudokuPuzzle"]
 - !private ["Ps8Hashable", "_getBuiltinLogicValue"]
@@ -312,7 +304,6 @@ depends-member:
 - ["CSo8NSObject", "Bool"]
 - !private ["CSo8NSObject", "FileManager"]
 - !private ["CSo8NSObject", "NSArray"]
-- !private ["CSo8NSObject", "NSLog"]
 - !private ["CSo8NSObject", "NSSearchPathForDirectoriesInDomains"]
 - !private ["CSo8NSObject", "NSString"]
 - ["CSo8NSObject", "String"]
@@ -342,7 +333,6 @@ depends-member:
 - !private ["CSo8NSObject", "write"]
 - !private ["PSo16NSObjectProtocol", "FileManager"]
 - !private ["PSo16NSObjectProtocol", "NSArray"]
-- !private ["PSo16NSObjectProtocol", "NSLog"]
 - !private ["PSo16NSObjectProtocol", "NSSearchPathForDirectoriesInDomains"]
 - !private ["PSo16NSObjectProtocol", "SudokuPuzzle"]
 - !private ["PSo16NSObjectProtocol", "appendingPathComponent"]
@@ -410,7 +400,6 @@ depends-member:
 - !private ["Ps20TextOutputStreamable", "init"]
 - !private ["PSo21UIApplicationDelegate", "FileManager"]
 - !private ["PSo21UIApplicationDelegate", "NSArray"]
-- !private ["PSo21UIApplicationDelegate", "NSLog"]
 - !private ["PSo21UIApplicationDelegate", "NSSearchPathForDirectoriesInDomains"]
 - !private ["PSo21UIApplicationDelegate", "SudokuPuzzle"]
 - ["PSo21UIApplicationDelegate", "application"]
@@ -432,7 +421,6 @@ depends-member:
 - ["CSo11UIResponder", "Bool"]
 - !private ["CSo11UIResponder", "FileManager"]
 - !private ["CSo11UIResponder", "NSArray"]
-- !private ["CSo11UIResponder", "NSLog"]
 - !private ["CSo11UIResponder", "NSSearchPathForDirectoriesInDomains"]
 - !private ["CSo11UIResponder", "NSString"]
 - ["CSo11UIResponder", "String"]
@@ -460,7 +448,6 @@ depends-member:
 - ["CSo11UIResponder", ""]
 - !private ["PSo30UIResponderStandardEditActions", "FileManager"]
 - !private ["PSo30UIResponderStandardEditActions", "NSArray"]
-- !private ["PSo30UIResponderStandardEditActions", "NSLog"]
 - !private ["PSo30UIResponderStandardEditActions", "NSSearchPathForDirectoriesInDomains"]
 - !private ["PSo30UIResponderStandardEditActions", "SudokuPuzzle"]
 - ["PSo30UIResponderStandardEditActions", "application"]
@@ -495,7 +482,6 @@ depends-member:
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
 - !private ["Ps9_Hashable", "FileManager"]
 - !private ["Ps9_Hashable", "NSArray"]
-- !private ["Ps9_Hashable", "NSLog"]
 - !private ["Ps9_Hashable", "NSSearchPathForDirectoriesInDomains"]
 - !private ["Ps9_Hashable", "SudokuPuzzle"]
 - !private ["Ps9_Hashable", "_getBuiltinLogicValue"]

@@ -33,8 +33,6 @@ class SudokuPuzzle {
         for r in 0 ..< 9 {
             for c in 0 ..< 9 {
                 let cell = puzzle[r][c]
-                // http://stackoverflow.com/questions/38165569/concatenate-swift-array-of-int-to-create-a-new-int
-                // let pencils = cell.pencils.reduce(0, {$0*10 + $1})
                 let cellDict : NSDictionary = ["pencils" : cell.pencils, "number" : cell.number, "isFixed" : cell.isFixed, "isConflicting" : cell.isConflicting]
                 
                 savedState.add(cellDict)
@@ -56,16 +54,14 @@ class SudokuPuzzle {
         let archiveName = sandboxArchivePath()
         if FileManager.default.fileExists(atPath: archiveName) {
             
-            NSLog("Loading puzzle.")
-            
             let saveState = NSMutableArray(contentsOfFile: archiveName)
             
             for r in 0 ..< 9 {
                 for c in 0 ..< 9 {
-                    puzzle[r][c].pencils = (saveState?[c*r] as! PuzzleCell).pencils
-                    puzzle[r][c].number = (saveState?[c*r] as! PuzzleCell).number
-                    puzzle[r][c].isFixed = (saveState?[c*r] as! PuzzleCell).isFixed
-                    puzzle[r][c].isConflicting = (saveState?[c*r] as! PuzzleCell).isConflicting
+                    puzzle[r][c].pencils = (saveState?[r*9 + c] as! NSDictionary).value(forKey: "pencils") as! [Int]
+                    puzzle[r][c].number = (saveState?[r*9 + c] as! NSDictionary).value(forKey: "number") as! Int
+                    puzzle[r][c].isFixed = (saveState?[r*9 + c] as! NSDictionary).value(forKey: "isFixed") as! Bool
+                    puzzle[r][c].isConflicting = (saveState?[r*9 + c] as! NSDictionary).value(forKey: "isConflicting") as! Bool
                 }
             }
         }
@@ -210,8 +206,7 @@ class SudokuPuzzle {
     
     // Is the value n penciled in?
     func isSetPencil(n: Int, row: Int, column: Int) -> Bool {
-        
-        // NSLog("row = \(row), col = \(column), n = \(n)")
+
         return (puzzle[row][column].pencils[n] == 1)
         
         
@@ -219,8 +214,6 @@ class SudokuPuzzle {
     
     // Pencil the value n in.
     func setPencil(n: Int, row: Int, column: Int) {
-        
-        // NSLog("row = \(row), col = \(column)")
         
         puzzle[row][column].pencils[n] = 1
         

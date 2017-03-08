@@ -26,15 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Load puzzle from sandbox. XXX TODO
         let archiveName = sandboxArchivePath()
+        
         if FileManager.default.fileExists(atPath: archiveName) {
-            
-            NSLog("Loading puzzle.")
             
             let saveState = NSArray(contentsOfFile: archiveName)
             self.sudoku?.setState(puzzleArray: saveState! as NSArray)
         }
         else {
-            NSLog("New simple puzzle")
+            
             self.sudoku!.loadPuzzle(puzzleString: "simple") // Load new simple puzzle
 
         }
@@ -48,8 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-       
-        self.sudoku = SudokuPuzzle()
 
         let archiveName = sandboxArchivePath()
         let saveState : NSArray = (self.sudoku?.savedState())!

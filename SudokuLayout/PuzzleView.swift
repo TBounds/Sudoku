@@ -64,8 +64,6 @@ class PuzzleView: UIView {
                     selected.row = row  // then select cell
                     selected.column = col
                     
-                    NSLog("PuzzleView. row = \(selected.row), column = \(selected.column)")
-                    
                     setNeedsDisplay()   // request redraw 
                     
                 }
