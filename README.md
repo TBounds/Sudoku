@@ -16,11 +16,11 @@
   
 **Description**: 
 
-         The goal of this project is to implement an iOS app for a sudoku 
-         puzzle game. Core Graphics was used to respond to finger taps to enable
-         the user to interact with the puzzle. A heirarchy of views was 
-         implemented to manage the possible device orientations. The MVC 
-         paradigm was followed in order to complete this project.
+    The goal of this project is to implement an iOS app for a sudoku 
+    puzzle game. Core Graphics was used to respond to finger taps to enable
+    the user to interact with the puzzle. A heirarchy of views was 
+    implemented to manage the possible device orientations. The MVC 
+    paradigm was followed in order to complete this project.
          
 
 **Build/Run**:
