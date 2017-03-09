@@ -253,6 +253,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonsView" destination="TSy-Lh-nSn" id="cys-sD-rPk"/>
                         <outlet property="puzzleView" destination="mSS-gh-XK4" id="2KC-p0-7mz"/>
                     </connections>
                 </viewController>

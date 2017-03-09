@@ -173,6 +173,7 @@ SWIFT_CLASS("_TtC12SudokuLayout14ViewController")
 @interface ViewController : UIViewController
 @property (nonatomic) BOOL pencilEnabled;
 @property (nonatomic) BOOL gameWon;
+@property (nonatomic, weak) IBOutlet ButtonsView * _Null_unspecified buttonsView;
 @property (nonatomic, weak) IBOutlet PuzzleView * _Null_unspecified puzzleView;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;

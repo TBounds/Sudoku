@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var pencilEnabled : Bool = false
     var gameWon : Bool = false
     
+    @IBOutlet weak var buttonsView: ButtonsView!
     @IBOutlet weak var puzzleView : PuzzleView!
     
     override func viewDidLoad() {
@@ -376,13 +377,13 @@ class ViewController: UIViewController {
         
         
         //     ... add other actions ...
-        //        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
-        //            let popoverPresenter = alertController.popoverPresentationController
-        //            let menuButtonTag = 12
-        //            let menuButton = buttonsView.viewWithTag(menuButtonTag)
-        //            popoverPresenter?.sourceView = menuButton
-        //            popoverPresenter?.sourceRect = (menuButton?.bounds)!
-        //        }
+        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
+            let popoverPresenter = alertController.popoverPresentationController
+            let menuButtonTag = 12
+            let menuButton = buttonsView.viewWithTag(menuButtonTag)
+            popoverPresenter?.sourceView = menuButton
+            popoverPresenter?.sourceRect = (menuButton?.bounds)!
+        }
         self.present(alertController, animated: true, completion: nil)
     }
 }
