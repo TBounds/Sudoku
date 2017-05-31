@@ -1,8 +1,6 @@
 *Author*: Tyler Bounds
   
 *Email*:  tyler.bounds@wsu.edu
-  
-*SID*:	11258134
 
 **Sudoku Application**
   
